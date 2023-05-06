@@ -5,7 +5,7 @@ export function useTelegram() {
         tg.close();
     }
     const onToggleButton = () =>{ //показывать специальную кнопку снизу - задумано ТГ
-        if (tg.MainButton){
+        if (tg.MainButton.isVisible){
             tg.MainButton.hide(); //скрываем кнопку
         }
         else {
