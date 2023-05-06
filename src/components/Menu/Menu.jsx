@@ -1,7 +1,8 @@
-import React, {useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import './Menu.css';
 import ProductItem from "../ProductItem/ProductItem";
 import {useTelegram} from "../../hooks/useTelegram";
+
 //функция по нахождению общей стоимости корзины
 const getTotalPrice = (items = []) => {
     return items.reduce((acc, item) => {
@@ -10,14 +11,11 @@ const getTotalPrice = (items = []) => {
 }
 //список продуктов
 const products = [
-    {id: '1', title: 'Латте Таро', price: 240, description: 'Синего цвета, прямые'},
-    {id: '2', title: 'Куртка', price: 12000, description: 'Зеленого цвета, теплая'},
-    {id: '3', title: 'Джинсы 2', price: 5000, description: 'Синего цвета, прямые'},
-    {id: '4', title: 'Куртка 8', price: 122, description: 'Зеленого цвета, теплая'},
-    {id: '5', title: 'Джинсы 3', price: 5000, description: 'Синего цвета, прямые'},
-    {id: '6', title: 'Куртка 7', price: 600, description: 'Зеленого цвета, теплая'},
-    {id: '7', title: 'Джинсы 4', price: 5500, description: 'Синего цвета, прямые'},
-    {id: '8', title: 'Куртка 5', price: 12000, description: 'Зеленого цвета, теплая'},
+    {id: '1', title: 'Латте Таро', price: 240, description: '350 мл'},
+    {id: '2', title: 'Латте Таро', price: 240, description: 'Вкусно'},
+    {id: '3', title: 'Латте Таро', price: 240, description: 'Вкусно'},
+    {id: '4', title: 'Латте Таро', price: 240, description: 'Вкусно'},
+    {id: '5', title: 'Латте Таро', price: 240, description: 'Вкусно'},
 ]
 const Menu = () => {
 
@@ -47,6 +45,33 @@ const Menu = () => {
             })
         }
     }
+//для кнопки Купить, queryId - отправляем в бэк и обмениваемя информацией
+    //отпрвляем запрос
+
+    const onSendData = useCallback(() => {
+        const data = {
+            products: addedItems,
+            totalPrice: getTotalPrice(addedItems),
+            queryId,
+        }
+        //fetch-запрос
+        fetch('https://tg-bot-d412c.web.app/web-data', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+        })
+    }, [addedItems])
+
+    useEffect(() => {
+        tg.onEvent('mainButtonClicked', onSendData)
+        return () => {
+            tg.offEvent('mainButtonClicked', onSendData)
+        }
+    }, [onSendData])
+
+
 
     return (
         //массив продуктов

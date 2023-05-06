@@ -17,12 +17,10 @@ function App() {
 //отрисовка по корневому пути
   return (
       <div className="App">
-          <Header/>
-          <Button onClick={onToggleButton}>Toggle</Button>
 
           <Routes>
-              <Route path={'main'} element={<Main />}/>
-              <Route index element={<Menu />}/>
+              <Route element={<Header/>}></Route>
+              <Route path={'menu'} index element={<Menu />}/>
               <Route path={'form'} element={<Form />}/>
           </Routes>
       </div>

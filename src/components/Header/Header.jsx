@@ -8,10 +8,15 @@ const Header = () => {
 
     return (
         <div className={'header'}>
-            <Button onClick={onClose}>x</Button>
+
             <span className={'username'}>
                 {user?.username}
             </span>
+
+            <span className={'title'}>
+                Университет кофе
+            </span>
+
         </div>
     );
 };
