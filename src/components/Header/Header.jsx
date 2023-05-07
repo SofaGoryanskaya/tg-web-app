@@ -4,16 +4,16 @@ import {useTelegram} from "../../hooks/useTelegram";
 import './Header.css';
 //навигационная панель
 const Header = () => {
-    const {user, onClose} = useTelegram();
+    const {user} = useTelegram();
 
     return (
         <div className={'header'}>
 
-            <span className={'username'}>
+            <span className={'username'} onClick={onClick}>
                 {user?.username}
             </span>
 
-            <span className={'title'}>
+            <span className={'headerName'}>
                 Университет кофе
             </span>
 

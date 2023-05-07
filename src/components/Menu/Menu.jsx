@@ -2,7 +2,9 @@ import React, {useCallback, useEffect, useState} from 'react';
 import './Menu.css';
 import ProductItem from "../ProductItem/ProductItem";
 import {useTelegram} from "../../hooks/useTelegram";
+import Button from "../Button/Button";
 
+const {getData} = require('../BD/BD');
 //функция по нахождению общей стоимости корзины
 const getTotalPrice = (items = []) => {
     return items.reduce((acc, item) => {
@@ -12,30 +14,28 @@ const getTotalPrice = (items = []) => {
 //список продуктов
 const products = [
     {id: '1', title: 'Латте Таро', price: 240, description: '350 мл'},
-    {id: '2', title: 'Латте Таро', price: 240, description: 'Вкусно'},
-    {id: '3', title: 'Латте Таро', price: 240, description: 'Вкусно'},
-    {id: '4', title: 'Латте Таро', price: 240, description: 'Вкусно'},
-    {id: '5', title: 'Латте Таро', price: 240, description: 'Вкусно'},
+    {id: '2', title: 'Латте Таро', price: 240, description: '350 мл'},
+    {id: '3', title: 'Латте Таро', price: 240, description: '350 мл'},
+    {id: '4', title: 'Латте Таро', price: 240, description: '350 мл'},
+    {id: '5', title: 'Латте Таро', price: 240, description: '350 мл'},
 ]
 const Menu = () => {
-
-
     const {tg, queryId} = useTelegram();
     //для добавления и удаления товаров из корзины
     const [addedItems, setAddedItems] = useState([]);
     const onAdd = (product) => {
-        //находим про id товар в корзине
+        //находим по id товар в корзине
         const alreadyAdded = addedItems.find(item => item.id === product.id);
         let newItems = [];
-//если товар в корзине есть - удаляем, иначе - добавляем в конец корзины
+        //если товар в корзине есть - удаляем, иначе - добавляем в конец корзины
         if (alreadyAdded) {
             newItems = addedItems.filter(item => item.id !== product.id);
         } else {
             newItems = [...addedItems, product];
         }
-
         setAddedItems(newItems)
-//если корзина пустая - убираем главную кнопку, иначе - считааем общую стоимость с помощью getTotalPrice
+
+        //если корзина пустая - убираем главную кнопку, иначе - считааем общую стоимость с помощью getTotalPrice
         if (newItems.length === 0) {
             tg.MainButton.hide();
         } else {
@@ -45,9 +45,8 @@ const Menu = () => {
             })
         }
     }
-//для кнопки Купить, queryId - отправляем в бэк и обмениваемя информацией
+    //для кнопки Купить, queryId - отправляем в бэк и обмениваемя информацией
     //отпрвляем запрос
-
     const onSendData = useCallback(() => {
         const data = {
             products: addedItems,
@@ -71,8 +70,6 @@ const Menu = () => {
         }
     }, [onSendData])
 
-
-
     return (
         //массив продуктов
         <div className={'list'}>
@@ -84,6 +81,7 @@ const Menu = () => {
                 />
             ))}
         </div>
+
     );
 };
 

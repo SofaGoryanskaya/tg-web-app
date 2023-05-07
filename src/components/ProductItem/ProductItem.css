@@ -1,25 +1,43 @@
 .product {
     display: flex;
+    margin-top: 55px;
     flex-direction: column;
     border: 1px solid rgba(255, 187, 86, 1);
     padding: 15px;
-    width: 170px;
+    width: 300px;
+    height: 250px;
+    color: black;
 }
 
-
+.title{
+    padding-left: 10px;
+    padding-top: 4px;
+    padding-bottom: 6px;
+    font-size: 1.5em;
+}
 .img {
     width: 100%;
-    background: lightgray;
-    height: 100px;
+    height: 150px;
     margin: 0 auto;
     background: rgba(255, 187, 86, 1);
-    opacity: 37%;
+    opacity: 50%;
+    border-radius: 6px;
 }
 
 .description {
     font-size: 0.8em;
+    color: black;
+
 }
 
 .add-btn {
-    width: 100%;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+
+    width: 65%;
+    height: 25%;
+    padding: 6px;
+    margin-top: 7px;
+    border-radius: 4px;
 }
