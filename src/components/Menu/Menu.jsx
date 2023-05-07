@@ -3,6 +3,7 @@ import './Menu.css';
 import ProductItem from "../ProductItem/ProductItem";
 import {useTelegram} from "../../hooks/useTelegram";
 import Button from "../Button/Button";
+import Main from "../Main/Main";
 
 const {getData} = require('../BD/BD');
 //функция по нахождению общей стоимости корзины
@@ -45,6 +46,7 @@ const Menu = () => {
             })
         }
     }
+
     //для кнопки Купить, queryId - отправляем в бэк и обмениваемя информацией
     //отпрвляем запрос
     const onSendData = useCallback(() => {
@@ -73,6 +75,8 @@ const Menu = () => {
     return (
         //массив продуктов
         <div className={'list'}>
+           <Main/>
+
             {products.map(item => (
                 <ProductItem
                     product={item}
@@ -80,7 +84,9 @@ const Menu = () => {
                     className={'item'}
                 />
             ))}
+
         </div>
+
 
     );
 };

@@ -9,9 +9,7 @@ const Header = () => {
     return (
         <div className={'header'}>
 
-            <span className={'username'} onClick={onClick}>
-                {user?.username}
-            </span>
+
 
             <span className={'headerName'}>
                 Университет кофе

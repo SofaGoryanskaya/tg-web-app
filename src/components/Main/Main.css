@@ -5,4 +5,10 @@
     border: none;
     outline: none;
     cursor: pointer;
+    background: white;
+    border: 0px;
+}
+.textUser {
+    font-size: 19px;
+    font-family: "Times New Roman";
 }

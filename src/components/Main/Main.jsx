@@ -8,7 +8,7 @@ const Main = () => {
     const {user} = useTelegram();
     return (
         <button onClick={onClick} className={'btn'}>
-            {user?.username}
+            <span className={'textUser'}> {user?.username}</span>
         </button>
     );
 };

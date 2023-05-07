@@ -17,7 +17,7 @@ function App() {
 //отрисовка по корневому пути
   return (
       <div className="App">
-
+        <Header/>
           <Routes>
               <Route element={ <h1>Check2</h1>}></Route>
               <Route path={'main'} element={ <Main/>}></Route>
