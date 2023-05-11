@@ -29,42 +29,54 @@
     color: black;
 
 }
-
+.price {
+    margin-bottom: 7px;
+}
 .add-btn {
-    position: relative;
-    left: 5%;
-    transform: translate(-5%, 0);
+
+    /*left: 5%;*/
+    /*transform: translate(-5%, 0);*/
+
     width: 50%;
     height: 25%;
     border-radius: 4px;
 
+
 }
 .remove{
+    /*left: 80%;*/
+    /*transform: translate(-80%, 0);*/
+    /*padding: 5px;*/
 
-    position: relative;
-    left: 80%;
-    transform: translate(-80%, 0);
-    width: 25%;
+    width: 30%;
     height: 25%;
-    padding: 5px;
     border-radius: 4px;
     background: #ffbb56;
     opacity: 50%;
     color: black;
+
+    margin-bottom: -1px;
+    margin-top: -50px;
+    position: relative;
+    left: 79%;
+    transform: translate(-80%, 0);
 }
 .count {
     /*outline: 2px solid #ffbb56;*/
     /*padding-left: 255px;*/
 
     /*opacity: 80%;*/
-    margin-bottom: -20px;
+    margin-bottom: -25px;
+    position: relative;
+    left: 98%;
+    transform: translate(-80%, 0);
+
     width: 32px;
     height: 32px;
     color: black;
     border-radius: 10px;
     background: #FADEB3;
     border: 0;
-    position: relative;
-    left: 95%;
-    transform: translate(-80%, 0);
+
+
 }

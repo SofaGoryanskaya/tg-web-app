@@ -4,6 +4,7 @@ import ProductItem from "../ProductItem/ProductItem";
 import {useTelegram} from "../../hooks/useTelegram";
 import Button from "../Button/Button";
 import Main from "../Main/Main";
+import Header from "../Header/Header";
 
 const {getData} = require('../BD/BD');
 
@@ -98,7 +99,7 @@ const Menu = () => {
                 Университет кофе
             </span>
 
-           <Main/>
+           <Header/>
             {products.map(item => (
                 <ProductItem
                     product={item}
