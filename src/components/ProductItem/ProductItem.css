@@ -1,11 +1,11 @@
 .product {
     display: flex;
-    margin-top: 55px;
+    margin-top: 58px;
     flex-direction: column;
     border: 1px solid rgba(255, 187, 86, 1);
     padding: 15px;
     width: 300px;
-    height: 250px;
+    height: 270px;
     color: black;
 }
 
@@ -32,12 +32,39 @@
 
 .add-btn {
     position: relative;
-    left: 50%;
-    transform: translate(-50%, 0);
-
-    width: 65%;
+    left: 5%;
+    transform: translate(-5%, 0);
+    width: 50%;
     height: 25%;
-    padding: 6px;
-    margin-top: 7px;
     border-radius: 4px;
+
+}
+.remove{
+
+    position: relative;
+    left: 80%;
+    transform: translate(-80%, 0);
+    width: 25%;
+    height: 25%;
+    padding: 5px;
+    border-radius: 4px;
+    background: #ffbb56;
+    opacity: 50%;
+    color: black;
+}
+.count {
+    /*outline: 2px solid #ffbb56;*/
+    /*padding-left: 255px;*/
+
+    /*opacity: 80%;*/
+    margin-bottom: -20px;
+    width: 32px;
+    height: 32px;
+    color: black;
+    border-radius: 10px;
+    background: #FADEB3;
+    border: 0;
+    position: relative;
+    left: 95%;
+    transform: translate(-80%, 0);
 }
