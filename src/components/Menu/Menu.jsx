@@ -65,15 +65,13 @@ const Menu = (callback, deps) => {
         })
     }
 
-    //для кнопки Купить, queryId - отправляем в бэк и обмениваемя информацией
-    //отпрвляем запрос
     const onSendData = useCallback(() => {
         const data = {
             products: addedItems,
             totalPrice: getTotalPrice(addedItems),
             queryId,
         }
-        fetch(' https://79.141.77.109:8000/web-data', {
+        fetch('https://79.141.77.109:8000/web-data', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -88,6 +86,11 @@ const Menu = (callback, deps) => {
             tg.offEvent('mainButtonClicked', onSendData)
         }
     }, [onSendData])
+
+
+    //для кнопки Купить, queryId - отправляем в бэк и обмениваемя информацией
+    //отпрвляем запрос
+
 
     return (
         <div className={'list'}>
