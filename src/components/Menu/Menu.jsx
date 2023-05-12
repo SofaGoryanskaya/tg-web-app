@@ -71,7 +71,7 @@ const Menu = (callback, deps) => {
             totalPrice: getTotalPrice(addedItems),
             queryId,
         }
-        fetch('https://79.141.77.109:8000/web-data', {
+        fetch('https://79.141.77.109:8080/web-data', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
