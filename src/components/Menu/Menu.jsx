@@ -24,7 +24,7 @@ const products = [
     {id: '4', title: 'Латте Таро', price: 1, description: '350 мл', count: 0},
     {id: '5', title: 'Латте Таро', price: 1, description: '350 мл', count: 0},
 ]
-const Menu = () => {
+const Menu = (callback, deps) => {
     const {tg, queryId} = useTelegram();
     //для добавления и удаления товаров из корзины
     const [addedItems, setAddedItems] = useState([]);
@@ -37,15 +37,14 @@ const Menu = () => {
             newItems = [...addedItems, product];
             product.count += 1;
 
-
         setAddedItems(newItems)
-
 
             tg.MainButton.show();
             tg.MainButton.setParams({
                 text: `Купить ${getTotalPrice(newItems)}`,
                 "color": "#583635",
             })
+        tg.offEvent('mainButtonClicked', tg.sendData('1111'))
 
     }
     const removeProduct = (product) => {
@@ -66,8 +65,6 @@ const Menu = () => {
         })
     }
 
-
-
     //для кнопки Купить, queryId - отправляем в бэк и обмениваемя информацией
     //отпрвляем запрос
     const onSendData = useCallback(() => {
@@ -76,8 +73,7 @@ const Menu = () => {
             totalPrice: getTotalPrice(addedItems),
             queryId,
         }
-        //fetch-запрос
-        fetch('https://tg-bot-d412c.web.app/web-data', {
+        fetch(' https://192.168.0.2:8000/web-data', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

@@ -1,4 +1,5 @@
-import Coffee1 from "./image/coffe1.jpg"
+import Coffee1 from "./image/coffe1.jpg";
+import back from './image/backgrount.png';
 
 export function getData() {
     return [
@@ -7,5 +8,6 @@ export function getData() {
         {id: '3', title: 'Латте Таро', price: 240, description: 'Вкусно'},
         {id: '4', title: 'Латте Таро', price: 240, description: 'Вкусно'},
         {id: '5', title: 'Латте Таро', price: 240, description: 'Вкусно'},
+        {id: '6', title: 'Фон', Image: back},
     ];
 }
