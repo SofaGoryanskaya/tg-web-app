@@ -21,7 +21,7 @@ const products = [
     {id: '4', title: 'Латте Таро', price: 1, description: '350 мл', count: 0},
     {id: '5', title: 'Латте Таро', price: 1, description: '350 мл', count: 0},
 ]
-const Menu = (callback, deps) => {
+const Menu = () => {
     const {tg, queryId} = useTelegram();
     //для добавления и удаления товаров из корзины
     const [addedItems, setAddedItems] = useState([]);
@@ -61,7 +61,7 @@ const Menu = (callback, deps) => {
 
     const onSendData = useCallback(() => {
         const data = {
-            products: addedItems,
+            // products: addedItems,
             totalPrice: getTotalPrice(addedItems),
             queryId,
         }
@@ -80,8 +80,10 @@ const Menu = (callback, deps) => {
 
     useEffect(() => {
         tg.onEvent('mainButtonClicked', onSendData)
+        console.log('1');
         return () => {
             tg.offEvent('mainButtonClicked', onSendData)
+
         }
     }, [onSendData])
 
