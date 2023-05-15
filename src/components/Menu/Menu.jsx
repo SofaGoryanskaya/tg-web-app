@@ -15,7 +15,7 @@ const getTotalPrice = (items = []) => {
 
 //список продуктов
 const products = [
-    {id: '1', title: 'Латте Таро', price: 1, description: '2 л', count: 0},
+    {id: '1', title: 'Латте Таро', price: 1, description: '350 л', count: 0},
     {id: '2', title: 'Латте Таро', price: 1, description: '350 мл', count: 0},
     {id: '3', title: 'Латте Таро', price: 1, description: '350 мл', count: 0},
     {id: '4', title: 'Латте Таро', price: 1, description: '350 мл', count: 0},
@@ -45,11 +45,8 @@ const Menu = (callback, deps) => {
 
     }
     const removeProduct = (product) => {
-        const alreadyAdded = addedItems.find(item => item.id === product.id);
-        let flag = true;
         let newItems = [];
         if (product.count > 0) {
-          // newItems= addedItems.splice(product.id);
             product.count = 0;
             newItems = addedItems.filter(item => item.id !== product.id);
         }
@@ -68,13 +65,17 @@ const Menu = (callback, deps) => {
             totalPrice: getTotalPrice(addedItems),
             queryId,
         }
-        fetch('https://79.141.77.109:8080/web-data', {
+        fetch('http://79.141.77.109:8080/web-data', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(data)
         })
+        tg.MainButton.setParams({
+            "color": "#00000"
+        })
+
     }, [addedItems])
 
     useEffect(() => {
