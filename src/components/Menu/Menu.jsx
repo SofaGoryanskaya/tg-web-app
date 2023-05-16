@@ -78,6 +78,7 @@ const Menu = () => {
     }, [addedItems])
 
     useEffect(() => {
+        console.log("Clicked");
         tg.onEvent('mainButtonClicked', onSendData)
         return () => {
             tg.offEvent('mainButtonClicked', onSendData)
