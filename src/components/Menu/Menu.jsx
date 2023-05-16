@@ -4,7 +4,6 @@ import ProductItem from "../ProductItem/ProductItem";
 import {useTelegram} from "../../hooks/useTelegram";
 import Header from "../Header/Header";
 
-
 //функция по нахождению общей стоимости корзины
 const getTotalPrice = (items = []) => {
     return items.reduce((acc, item) => {
@@ -27,21 +26,20 @@ const Menu = () => {
     const [addedItems, setAddedItems] = useState([]);
 
     const onAdd= (product) => {
-        const alreadyAdded = addedItems.find(item => item.id === product.id);
+        // const alreadyAdded = addedItems.find(item => item.id === product.id);
         let newItems = [];
-
        //добавление
-            newItems = [...addedItems, product];
-            product.count += 1;
+        newItems = [...addedItems, product];
+        product.count += 1;
 
         setAddedItems(newItems)
 
-            tg.MainButton.show();
-            tg.MainButton.setParams({
-                text: `Купить ${getTotalPrice(newItems)}`,
-                "color": "#583635",
-            })
-        tg.offEvent('mainButtonClicked', tg.sendData('1111'))
+        tg.MainButton.show();
+        tg.MainButton.setParams({
+            text: `Купить ${getTotalPrice(newItems)}`,
+            "color": "#583635",
+        })
+        // tg.offEvent('mainButtonClicked', tg.sendData('1111'))
 
     }
     const removeProduct = (product) => {
@@ -63,8 +61,9 @@ const Menu = () => {
         const data = {
             // products: addedItems,
             totalPrice: getTotalPrice(addedItems),
-            queryId,
+            queryId
         }
+
         fetch('http://79.141.77.109:8080/web-data', {
             method: 'POST',
             headers: {
@@ -80,13 +79,10 @@ const Menu = () => {
 
     useEffect(() => {
         tg.onEvent('mainButtonClicked', onSendData)
-        console.log('1');
         return () => {
             tg.offEvent('mainButtonClicked', onSendData)
-
         }
     }, [onSendData])
-
 
     //для кнопки Купить, queryId - отправляем в бэк и обмениваемя информацией
     //отпрвляем запрос

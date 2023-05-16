@@ -33,8 +33,6 @@ const Form = () => {
     const onChangeSubject = (e) => {
         setSubject(e.target.value)
     }
-
-
     useEffect(() => {
         tg.MainButton.setParams({
             text: 'Отправить данные'
