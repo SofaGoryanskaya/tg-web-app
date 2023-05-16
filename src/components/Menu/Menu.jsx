@@ -60,7 +60,7 @@ const Menu = () => {
     const onSendData = useCallback(() => {
         const data = {
             // products: addedItems,
-            totalPrice: getTotalPrice(addedItems),
+            // totalPrice: getTotalPrice(addedItems),
             id: queryId
         }
 
@@ -71,16 +71,10 @@ const Menu = () => {
             },
             body: JSON.stringify(data)
         })
-        tg.MainButton.setParams({
-            "color": "#00000"
-        })
 
     }, [addedItems])
 
     useEffect(() => {
-        // tg.MainButton.setParams({
-        //     text: 'rлик'
-        // })
         tg.onEvent('mainButtonClicked', onSendData)
         return () => {
             tg.offEvent('mainButtonClicked', onSendData)

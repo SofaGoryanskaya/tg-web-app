@@ -1,15 +1,13 @@
 import './App.css';
 import React, {useEffect} from "react";
 import {useTelegram} from "./hooks/useTelegram";
-import Header from "./components/Header/Header";
 import {Route, Routes} from "react-router-dom";
 import Menu from "./components/Menu/Menu";
 import Form from "./components/Form/Form";
-import Button from "./components/Button/Button";
 import Main from "./components/Main/Main";
 import Profile from "./components/Profile/Profile";
 function App() {
-    const {tg, onToggleButton, user} = useTelegram();
+    const {tg} = useTelegram();
     useEffect(()=> {
         tg.ready();
         },

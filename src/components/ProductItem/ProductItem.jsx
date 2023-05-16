@@ -1,19 +1,16 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './ProductItem.css';
 import Button from "../Button/Button";
 
- const ProductItem = ({product, className, onAdd, removeProduct, counter, flag}) => {
+ const ProductItem = ({product, className, onAdd, removeProduct}) => {
 
     const onAddHandler = () => {
         onAdd(product);
 
     }
-    const handleDecrement = (flag) => {
+    const handleDecrement = () => {
         removeProduct(product);
     }
-     const counterProduct = () => {
-         counter(product);
-     }
     return (
         <div className={'product ' + className}>
             <div className={'img'}/>
