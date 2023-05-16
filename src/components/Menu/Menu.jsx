@@ -61,7 +61,7 @@ const Menu = () => {
         const data = {
             // products: addedItems,
             totalPrice: getTotalPrice(addedItems),
-            queryId
+            id: queryId
         }
 
         fetch('http://79.141.77.109:8080/web-data', {
@@ -78,7 +78,9 @@ const Menu = () => {
     }, [addedItems])
 
     useEffect(() => {
-        console.log("Clicked");
+        // tg.MainButton.setParams({
+        //     text: 'rлик'
+        // })
         tg.onEvent('mainButtonClicked', onSendData)
         return () => {
             tg.offEvent('mainButtonClicked', onSendData)

@@ -18,7 +18,6 @@ const Form = () => {
 
     useEffect(() => {
         tg.onEvent('mainButtonClicked', onSendData)
-        console.log("Clicked form");
         return () => {
             //"отписаться от слушателя событий"
             tg.offEvent('mainButtonClicked', onSendData)
