@@ -6,7 +6,6 @@ import Button from "../Button/Button";
 
     const onAddHandler = () => {
         onAdd(product);
-
     }
     const handleDecrement = () => {
         removeProduct(product);

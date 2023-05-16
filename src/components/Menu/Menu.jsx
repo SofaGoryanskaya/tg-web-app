@@ -59,8 +59,8 @@ const Menu = () => {
 
     const onSendData = useCallback(() => {
         const data = {
-            // products: addedItems,
-            // totalPrice: getTotalPrice(addedItems),
+            products: addedItems,
+            totalPrice: getTotalPrice(addedItems),
             id: queryId
         }
 
