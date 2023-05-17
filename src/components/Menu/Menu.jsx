@@ -61,10 +61,10 @@ const Menu = () => {
         const data = {
             products: addedItems,
             totalPrice: getTotalPrice(addedItems),
-            id: queryId
+            queryId: queryId
         }
 
-        fetch('http://79.141.77.109:8080/web-data', {
+        fetch('https://79.141.77.109:8080/web-data', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
