@@ -3,7 +3,7 @@ import './Menu.css';
 import ProductItem from "../ProductItem/ProductItem";
 import {useTelegram} from "../../hooks/useTelegram";
 import Header from "../Header/Header";
-import axios from "axios";
+
 
 //функция по нахождению общей стоимости корзины
 const getTotalPrice = (items = []) => {
@@ -57,30 +57,21 @@ const Menu = () => {
             "color": "#583635",
         })
     }
-
     const onSendData = useCallback(() => {
         const data = {
             products: addedItems,
             totalPrice: getTotalPrice(addedItems),
-            queryId: queryId
+            queryId: queryId,
         }
-
-        let config ={
+        fetch('http://79.141.77.109:8000/web-data', {
             method: 'POST',
-            url: 'http://79.141.77.109:8080/web-data',
             headers: {
                 'Content-Type': 'application/json',
             },
-            data : data
-        };
-
-        axios.request(config).then((response) => {
-            console.log(JSON.stringify(response.data));
+            body: JSON.stringify(data)
         })
-            .catch((error) => {
-                console.log(error);
-            });
-
+            .then((response) => response.json())
+            .catch(error => console.log('error', error));
     }, [addedItems])
 
     useEffect(() => {
@@ -89,17 +80,19 @@ const Menu = () => {
             tg.offEvent('mainButtonClicked', onSendData)
         }
     }, [onSendData])
+
     //для кнопки Купить, queryId - отправляем в бэк и обмениваемя информацией
     //отпрвляем запрос
 
 
     return (
         <div className={'list'}>
+            <Header/>
             <span className={'headerName'}>
                 Университет кофе
             </span>
 
-           <Header/>
+
             {products.map(item => (
                 <ProductItem
                     product={item}
