@@ -1,4 +1,5 @@
 import React, {useCallback, useEffect, useState} from 'react';
+import axios from 'axios';
 import './Menu.css';
 import ProductItem from "../ProductItem/ProductItem";
 import {useTelegram} from "../../hooks/useTelegram";
@@ -64,12 +65,10 @@ const Menu = () => {
             queryId: queryId
         }
 
-        fetch('https://79.141.77.109:8080/web-data', {
-            method: 'POST',
+        axios.post('https://79.141.77.109:8080/web-data', data, {
             headers: {
                 'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data)
+            }
         })
 
     }, [addedItems])
