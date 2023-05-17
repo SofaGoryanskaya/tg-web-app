@@ -3,6 +3,7 @@ import './Menu.css';
 import ProductItem from "../ProductItem/ProductItem";
 import {useTelegram} from "../../hooks/useTelegram";
 import Header from "../Header/Header";
+import axios from "axios";
 
 //функция по нахождению общей стоимости корзины
 const getTotalPrice = (items = []) => {
