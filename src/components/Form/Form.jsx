@@ -2,7 +2,7 @@ import React, {useCallback, useEffect, useState} from 'react';
 import './Form.css';
 import {useTelegram} from "../../hooks/useTelegram";
 import ProductItem from "../ProductItem/ProductItem";
-
+import photoLabel from "./Takeaway coffee.svg";
 const getTotalPrice = (items = []) => {
     return items.reduce((acc, item) => {
             return acc += item.price
@@ -17,6 +17,7 @@ const products = [
     {id: '4', title: 'Латте Таро', price: 1, description: '350 мл', count: 0},
     {id: '5', title: 'Латте Таро', price: 1, description: '350 мл', count: 0},
 ]
+let flagCount = 0;
 
 const Form = () => {
     const [country, setCountry] = useState('');
@@ -59,6 +60,7 @@ const Form = () => {
        //добавление
         newItems = [...addedItems, product];
         product.count += 1;
+        flagCount +=1;
 
         setAddedItems(newItems)
 
@@ -66,6 +68,7 @@ const Form = () => {
     const removeProduct = (product) => {
         let newItems = [];
         if (product.count > 0) {
+            flagCount -=  product.count;
             product.count = 0;
             newItems = addedItems.filter(item => item.id !== product.id);
         }
@@ -75,12 +78,12 @@ const Form = () => {
 
 
     useEffect(() => {
-        if(!country) {
+        if(!country || flagCount <= 0) {
             tg.MainButton.hide();
         } else {
             tg.MainButton.show();
         }
-    }, [country])
+    }, [country, flagCount])
 
     const onChangeCountry = (e) => {
         setCountry(e.target.value)
@@ -89,11 +92,11 @@ const Form = () => {
 
     return (
         <div className={"form"}>
-            <h3>Введите ваши данные</h3>
+            <h4>Введите имя заказчика: </h4>
             <input
                 className={'input'}
                 type="text"
-                placeholder={'Страна'}
+                placeholder={'*обязатльно для ввода'}
                 value={country}
                 onChange={onChangeCountry}
             />
@@ -105,8 +108,10 @@ const Form = () => {
                             removeProduct = {removeProduct}
                             className={'item'}
                         />
+
                     ))}
 
+            <img className={"photo"} src={photoLabel}/>
         </div>
     );
 };

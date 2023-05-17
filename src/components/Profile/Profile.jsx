@@ -68,6 +68,7 @@ const Profile = () => {
                 <option value={'с собой'}>С собой</option>
                 <option value={'здесь'}>Здесь</option>
             </select>
+
         </div>
     );
 };
