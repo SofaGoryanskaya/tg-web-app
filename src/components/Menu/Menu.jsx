@@ -65,11 +65,21 @@ const Menu = () => {
             queryId: queryId
         }
 
-        axios.post('https://79.141.77.109:8080/web-data', data, {
+        let config ={
+            method: 'POST',
+            url: 'http://79.141.77.109:8080/web-data',
             headers: {
                 'Content-Type': 'application/json',
-            }
+            },
+            data : data
+        };
+
+        axios.request(config).then((response) => {
+            console.log(JSON.stringify(response.data));
         })
+            .catch((error) => {
+                console.log(error);
+            });
 
     }, [addedItems])
 
