@@ -6,6 +6,7 @@ import Menu from "./components/Menu/Menu";
 import Form from "./components/Form/Form";
 import Main from "./components/Main/Main";
 import Profile from "./components/Profile/Profile";
+import Coffee from "./components/Coffee/Coffee";
 function App() {
     const {tg} = useTelegram();
     useEffect(()=> {
@@ -22,6 +23,7 @@ function App() {
              <Route path={'menu'} index element={<Menu />}/>
               <Route path={'form'} element={<Form />}/>
               <Route path={'prof'} element={<Profile />}/>
+              <Route path={'coffee'} element={<Coffee />}/>
           </Routes>
       </div>
   );

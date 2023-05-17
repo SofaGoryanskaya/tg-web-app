@@ -1,54 +1,91 @@
 import React, {useCallback, useEffect, useState} from 'react';
 import './Form.css';
 import {useTelegram} from "../../hooks/useTelegram";
+import ProductItem from "../ProductItem/ProductItem";
+
+const getTotalPrice = (items = []) => {
+    return items.reduce((acc, item) => {
+            return acc += item.price
+
+    }, 0)
+}
+
+const products = [
+    {id: '1', title: 'Латте Таро', price: 1, description: '350 л', count: 0},
+    {id: '2', title: 'Латте Таро', price: 1, description: '350 мл', count: 0},
+    {id: '3', title: 'Латте Таро', price: 1, description: '350 мл', count: 0},
+    {id: '4', title: 'Латте Таро', price: 1, description: '350 мл', count: 0},
+    {id: '5', title: 'Латте Таро', price: 1, description: '350 мл', count: 0},
+]
 
 const Form = () => {
     const [country, setCountry] = useState('');
-    const [street, setStreet] = useState('');
-    const [subject, setSubject] = useState('physical');
     const {tg} = useTelegram();
+    const onClick = () => {
+        window.location.assign('https://tg-bot-d412c.web.app/prof');
+    }
 
-    const onSendData = useCallback(() => {
-        const data = {
-            country,
-            street,
-            subject
-        }
-        tg.sendData(JSON.stringify(data));
-    }, [country, street, subject])
+    const [addedItems, setAddedItems] = useState([]);
+
+    // const onSendData = useCallback(() => {
+    //     const data = {
+    //         country,
+    //         totalPrice: getTotalPrice(addedItems)
+    //
+    //     }
+    //     tg.sendData(JSON.stringify(data));
+    // }, [country])
+
 
     useEffect(() => {
-        tg.onEvent('mainButtonClicked', onSendData)
+        tg.onEvent('mainButtonClicked', onClick)
         return () => {
-            tg.offEvent('mainButtonClicked', onSendData)
+            tg.offEvent('mainButtonClicked', onClick)
         }
-    }, [onSendData])
+    }, [onClick])
 
     useEffect(() => {
         tg.MainButton.setParams({
-            text: 'Отправить данные'
+            // text: `Купить ${getTotalPrice(newItems)}`,
+            text: 'Купить',
+            "color": "#583635",
         })
     }, [])
 
+
+    const onAdd= (product) => {
+        // const alreadyAdded = addedItems.find(item => item.id === product.id);
+        let newItems = [];
+       //добавление
+        newItems = [...addedItems, product];
+        product.count += 1;
+
+        setAddedItems(newItems)
+
+    }
+    const removeProduct = (product) => {
+        let newItems = [];
+        if (product.count > 0) {
+            product.count = 0;
+            newItems = addedItems.filter(item => item.id !== product.id);
+        }
+        setAddedItems(newItems)
+
+    }
+
+
     useEffect(() => {
-        if(!street || !country) {
+        if(!country) {
             tg.MainButton.hide();
         } else {
             tg.MainButton.show();
         }
-    }, [country, street])
+    }, [country])
 
     const onChangeCountry = (e) => {
         setCountry(e.target.value)
     }
 
-    const onChangeStreet = (e) => {
-        setStreet(e.target.value)
-    }
-
-    const onChangeSubject = (e) => {
-        setSubject(e.target.value)
-    }
 
     return (
         <div className={"form"}>
@@ -60,17 +97,16 @@ const Form = () => {
                 value={country}
                 onChange={onChangeCountry}
             />
-            <input
-                className={'input'}
-                type="text"
-                placeholder={'Улица'}
-                value={street}
-                onChange={onChangeStreet}
-            />
-            <select value={subject} onChange={onChangeSubject} className={'select'}>
-                <option value={'physical'}>Физ. лицо</option>
-                <option value={'legal'}>Юр. лицо</option>
-            </select>
+
+            {products.map(item => (
+                        <ProductItem
+                            product={item}
+                            onAdd={onAdd}
+                            removeProduct = {removeProduct}
+                            className={'item'}
+                        />
+                    ))}
+
         </div>
     );
 };
