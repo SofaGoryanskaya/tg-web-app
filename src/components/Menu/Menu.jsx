@@ -64,12 +64,10 @@ const Menu = () => {
             queryId: queryId
         }
 
-        fetch('https://79.141.77.109:8080/web-data', {
-            method: 'POST',
+        axios.post('https://79.141.77.109:8080/web-data', data, {
             headers: {
                 'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data)
+            }
         })
 
     }, [addedItems])
@@ -80,7 +78,6 @@ const Menu = () => {
             tg.offEvent('mainButtonClicked', onSendData)
         }
     }, [onSendData])
-
     //для кнопки Купить, queryId - отправляем в бэк и обмениваемя информацией
     //отпрвляем запрос
 
