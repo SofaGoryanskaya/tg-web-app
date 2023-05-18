@@ -100,7 +100,7 @@ const Form = () => {
                 value={country}
                 onChange={onChangeCountry}
             />
-
+            {/*<button className={'count'} disabled> {product.count} </button>*/}
             {products.map(item => (
                         <ProductItem
                             product={item}
