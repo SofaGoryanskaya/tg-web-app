@@ -3,9 +3,34 @@ import "./Profile.css";
 import {useTelegram} from "../../hooks/useTelegram";
 import photoLabelOreder from './Frame 36.svg'
 
-// function getRandomArbitrary(min, max) {
-//     return Math.random() * (max - min) + min;
-// }
+let Data = new Date();
+let fMonth;
+
+if (Data.getMonth() === 0) {
+    fMonth = "01";
+} else if (Data.getMonth() === 1) {
+    fMonth = "02";
+} else if (Data.getMonth() === 2) {
+    fMonth = "03";
+} else if (Data.getMonth() === 3) {
+    fMonth = "04";
+} else if (Data.getMonth() === 4) {
+    fMonth = "05";
+} else if (Data.getMonth() === 5) {
+    fMonth = "06";
+} else if (Data.getMonth() === 6) {
+    fMonth = "07";
+} else if (Data.getMonth() === 7) {
+    fMonth = "08";
+} else if (Data.getMonth() === 8) {
+    fMonth = "09";
+} else if (Data.getMonth() === 9) {
+    fMonth = "10";
+} else if (Data.getMonth() === 10) {
+    fMonth = "11";
+} else if (Data.getMonth() === 11) {
+    fMonth = "12";
+}
 
 const Profile = () => {
     const [number, setNumber] = useState('');
@@ -13,21 +38,26 @@ const Profile = () => {
     const [subjectONE, setSubjectONE] = useState('с собой');
     const [subjectTWO, setSubjectTWO] = useState('наличными');
     const {tg} = useTelegram();
-    const [numberOrder, setNumberOrder] = useState(0);
-    // setNumberOrder(getRandomArbitrary(100, 1000000));
+    const [numberOrder, setNumberOrder] = useState(Math.floor(Math.random() * 100) + 1);
+    const [dataMsg, setDayaMsg] = useState('');
+
+
 
     const onSendData = useCallback(() => {
+       // setNumberOrder(23);
         const data = {
             number,
             comment,
             subjectONE,
             subjectTWO,
-            // numberOrder
+            numberOrder,
+            dataMsg
         }
         tg.sendData(JSON.stringify(data));
-    }, [number, comment, subjectONE, subjectTWO])
+    }, [number, comment, subjectONE, subjectTWO, numberOrder, dataMsg])
 
     useEffect(() => {
+        setDayaMsg( Data.getHours() + ":" + Data.getMinutes() + ":" + Data.getSeconds() + " " + Data.getDate() + "." + fMonth + "." + Data.getFullYear());
         tg.onEvent('mainButtonClicked', onSendData)
         return () => {
             tg.offEvent('mainButtonClicked', onSendData)
@@ -95,6 +125,7 @@ const Profile = () => {
                 <option value={'по карте'}>По карте</option>
             </select>
             <img className={"photoLabelOreder"} src={photoLabelOreder}/>
+
 
         </div>
     );
