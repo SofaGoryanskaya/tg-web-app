@@ -19,8 +19,10 @@ const products = [
 ]
 let flagCount = 0;
 
+
 const Form = () => {
     const [country, setCountry] = useState('');
+    const [price, totalPrice] = useState(0);
     const {tg} = useTelegram();
     const onClick = () => {
         window.location.assign('https://tg-bot-d412c.web.app/prof');
@@ -62,7 +64,8 @@ const Form = () => {
         product.count += 1;
         flagCount +=1;
 
-        setAddedItems(newItems)
+        setAddedItems(newItems);
+        totalPrice(getTotalPrice(newItems));
 
     }
     const removeProduct = (product) => {
@@ -72,7 +75,8 @@ const Form = () => {
             product.count = 0;
             newItems = addedItems.filter(item => item.id !== product.id);
         }
-        setAddedItems(newItems)
+        setAddedItems(newItems);
+        totalPrice(getTotalPrice(newItems));
 
     }
 
@@ -100,7 +104,8 @@ const Form = () => {
                 value={country}
                 onChange={onChangeCountry}
             />
-            {/*<button className={'count'} disabled> {product.count} </button>*/}
+            <button className={'totalPrice'} disabled> {price} </button>
+
             {products.map(item => (
                         <ProductItem
                             product={item}

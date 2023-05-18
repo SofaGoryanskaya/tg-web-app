@@ -44,3 +44,18 @@ h4 {
 
     color: #000000;
 }
+.totalPrice{
+    margin-top: 30%;
+    position: fixed;
+    left: 94%;
+    transform: translate(-90%, 0);
+
+    width: 40px;
+    height: 40px;
+    color: #882323;
+    border-radius: 10px;
+    /*background: #FADEB3;*/
+    background: #ffcc99;
+    border: 0;
+    font-weight: bold;
+}
