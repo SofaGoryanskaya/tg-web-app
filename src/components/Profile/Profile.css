@@ -1,18 +1,44 @@
-
+.textSelect {
+    color: dimgrey;
+    margin-top: 15px;
+}
 .prof {
     display: flex;
     flex-direction: column;
     width: 100%;
     padding: 20px;
+    background: white;
 }
 
 .input {
     width: 100%;
     padding: 10px;
     margin-top: 15px;
+    font-family: Palatino, URW Palladio L, serif;
 }
 
 .select {
     padding: 10px;
-    margin-top: 15px;
+    margin-top: 5px;
+    /*border: 1px solid rgba(255, 187, 86, 1);*/
+    background:linear-gradient(to right, rgba(253, 203, 149, 0.53), rgb(253, 203, 149));
+    color: rgba(51, 0, 0, 0.8);
+    font-size: medium;
+    border-radius: 0.25rem;
+    border: none;
+    font-family: Palatino, URW Palladio L, serif;
+}
+.makingOrder {
+    margin-left: 17%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 25px;
+    color: #000000;
+    font-family: Palatino, URW Palladio L, serif;
+}
+
+.photoLabelOreder{
+    margin-top: 30px;
+    height: 132px;
+
 }

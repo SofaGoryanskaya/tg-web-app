@@ -20,7 +20,8 @@ const products = [
 let flagCount = 0;
 
 
-const Form = () => {
+const Form = ()=> {
+
     const [country, setCountry] = useState('');
     const [price, totalPrice] = useState(0);
     const {tg} = useTelegram();
