@@ -17,10 +17,11 @@
 
 }
 .headerNameApp {
-    margin-left: 17%;
+    margin-left: 5%;
     font-size: 32px;
     color: #000000;
     margin-top: 36px;
+    text-align: center;
 }
 .coffe {
     font-weight: bold;

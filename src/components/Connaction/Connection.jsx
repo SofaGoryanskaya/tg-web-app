@@ -25,6 +25,10 @@ const Connection = () => {
                 <Placemark geometry={[55.04356688094231,82.94915840806416]} />
             </Map>
 
+            <div>
+                <input ref={clipboard.target} />
+                <button onClick={clipboard.copy}>Copy</button>
+            </div>
 
             <div className="contactinf">Контактная информация </div>
             <div className="numberCoffe">
@@ -32,17 +36,17 @@ const Connection = () => {
                 <button onClick={clipboard.copy} className="copyInt">8888888888</button>
 
                 {/*Телеграм: https://t.me/CofeeGruanskaya_bot*/}
-                {/*Почта:*/}
+                {/*Почта: universitycoffe@gmail.com*/}
             </div>
             <div className="contactinf">График приема заказов </div>
             <div className="numberCoffe">
                 Понедельник: 7:00 - 20:00
-                Вторник: 7:00 - 20:00
-                Среда: 7:00 - 20:00
-                Четверг: 7:00 - 20:00
-                Пятница: 7:00 - 20:00
-                Суббота: 9:00 - 22:00
-                Воскресенье: 9:00 - 22:00
+               <p> Вторник: 7:00 - 20:00 </p>
+                <p>  Среда: 7:00 - 20:00</p>
+                <p>  Четверг: 7:00 - 20:00</p>
+                <p> Пятница: 7:00 - 20:00</p>
+                <p>  Суббота: 9:00 - 22:00</p>
+                <p>  Воскресенье: 9:00 - 22:00</p>
             </div>
 
 
