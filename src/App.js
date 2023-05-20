@@ -8,6 +8,7 @@ import Main from "./components/Main/Main";
 import Profile from "./components/Profile/Profile";
 import Coffee from "./components/Coffee/Coffee";
 import NewCoffee from "./components/Menu/NewCoffee";
+import Connection from "./components/Connaction/Connection";
 function App() {
     const {tg} = useTelegram();
     useEffect(()=> {
@@ -23,6 +24,8 @@ function App() {
              <Route path={'menu'} index element={<Menu />}/>
               <Route path={'form'} element={<Form />}/>
               <Route path={'prof'} element={<Profile />}/>
+              <Route path={"map"} element={<Connection/>}/>
+
               <Route path={'coffee'} element={<Coffee />}/>
               <Route path={'new'} element={<NewCoffee />}/>
           </Routes>

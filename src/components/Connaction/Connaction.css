@@ -1,0 +1,35 @@
+.map {
+    background: linear-gradient(white, #FFCC99);
+}
+
+.headerNameMap {
+    margin-left: 17%;
+    font-size: 32px;
+    color: black;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: Palatino, URW Palladio L, serif;
+}
+.coffe {
+    font-weight: bold;
+    font-size: 30px;
+}
+.numberCoffe {
+    margin-top: 18px;
+    color: black;
+    font-family: Palatino, URW Palladio L, serif;
+    font-size: medium;
+    border: 1px #FAC28EFF;
+    border-radius: 5px;
+    margin-left: 5px;
+}
+.copyInt {
+    color:black;
+    background: none;
+    font-size: medium;
+    font-family: Palatino, URW Palladio L, serif;
+    border: rgba(136, 35, 35, 0.42);
+    margin-top: 7px;
+    width: 50%;
+
+}
