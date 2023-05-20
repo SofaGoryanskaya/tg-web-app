@@ -1,6 +1,5 @@
-import React, {useCallback, useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import './Menu.css';
-import ProductItem from "../ProductItem/ProductItem";
 import photoLabel from "../Form/Takeaway coffee.svg";
 import ParentCoffee from "./ParentCoffee";
 
@@ -9,28 +8,34 @@ const products = getData();
 
 const Menu = ()=> {
     const [article, setArticle] = useState('');
-    const [category, setCategory] = useState('main');
     const onClick = (article) => {
-        window.location.assign('https://tg-bot-d412c.web.app/' + article);
+        window.location.assign(' https://tg-bot-2-a0669.web.app/' + article);
     }
-    const onChange = (e) => {
+
+    const onChangeSubjectONE = (e) => {
         setArticle(e.target.value)
-        onClick(article)
+    }
+    const onChangeSubjectArticle = (e) => {
+        setArticle(e.target.value)
+        if (article === 'cold') {
+            onClick('cold')
+        }
     }
 
     return (
         <div className={"menu"}>
-
             <p className={'headerNameApp'}>
                 Университет <b className={"coffe"}> кофе</b>
             </p>
-
             <div className={"textSelect"}>Выбор раздела меню</div>
-            <select value={category} onChange={onChange} className={'select'} >
-                <option value={'cold'}>Кофе</option>
-                <option value={'cold'}>Холодные напитки</option>
-                <option value={'autortea'}>Авторский чай</option>
+
+
+            <select value={article}  onChange={onChangeSubjectONE}  className={'select'} >
+                <option value={'все'} >Все</option>
+                <option value={'cold'} >Холодные напитки</option>
+                <option value={'tea'} >Чаи </option>
             </select>
+            <button onClick={onChangeSubjectArticle} className="buttonChangeArticle"> Перейти </button>
 
             {products.map(item => (
                 <ParentCoffee
@@ -38,7 +43,6 @@ const Menu = ()=> {
                     className={'item'}
                 />
             ))}
-
             <img className={"photo"} src={photoLabel}/>
         </div>
     );

@@ -109,7 +109,7 @@ const Profile = () => {
             <input
                 className={'input'}
                 type="text"
-                placeholder={'Ваш комментарий'}
+                placeholder={'Ваш комментарий (например, латте фисташка-малина на безлактотзном молоке'}
                 value={comment}
                 onChange={onChangeStreet}
             />

@@ -1,4 +1,3 @@
-
 .item {
     margin-right: 10px;
     margin-bottom: 10px;
@@ -15,11 +14,32 @@
 
 .headerNameApp {
     margin-left: 15%;
-    margin-top: 15px;
+    margin-top: 4px;
     font-size: 32px;
     color: #000000;
 }
 .coffe {
     font-weight: bold;
     font-size: 30px;
+}
+.buttonChangeArticle {
+    color: black;
+    font-size: small;
+    font-family: Palatino, URW Palladio L, serif;
+    background: antiquewhite;
+    border-radius: 0;
+    border: 0;
+}
+.textBtnBack {
+    color: black;
+    font-size: medium;
+    font-family: Palatino, URW Palladio L, serif;
+}
+.btnBack {
+    margin-left: 5px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background: white;
+    border: 0;
 }

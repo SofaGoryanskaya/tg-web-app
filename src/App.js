@@ -6,9 +6,9 @@ import Menu from "./components/Menu/Menu";
 import Form from "./components/Form/Form";
 import Main from "./components/Main/Main";
 import Profile from "./components/Profile/Profile";
-import Coffee from "./components/Coffee/Coffee";
-import NewCoffee from "./components/Menu/NewCoffee";
 import Connection from "./components/Connaction/Connection";
+import ColdCoffee from "./components/Menu/category/ColdCoffee";
+
 function App() {
     const {tg} = useTelegram();
     useEffect(()=> {
@@ -17,19 +17,20 @@ function App() {
     [])
 //отрисовка по корневому пути
   return (
-      <div className="App">
 
-          <Routes>
-              <Route path={'main'} element={ <Main/>}></Route>
-             <Route path={'menu'} index element={<Menu />}/>
-              <Route path={'form'} element={<Form />}/>
-              <Route path={'prof'} element={<Profile />}/>
-              <Route path={"map"} element={<Connection/>}/>
+          <div className="App">
 
-              <Route path={'coffee'} element={<Coffee />}/>
-              <Route path={'new'} element={<NewCoffee />}/>
-          </Routes>
-      </div>
+              <Routes>
+                  <Route path={'main'} element={ <Main/>}></Route>
+                  <Route path={'form'} element={<Form />}/>
+                  <Route path={'prof'} element={<Profile />}/>
+                  <Route path={"map"} element={<Connection/>}/>
+
+                  <Route path={'menu'} index element={<Menu />}/>
+                  <Route path={'cold'} element={<ColdCoffee />}/>
+              </Routes>
+          </div>
+
   );
 }
 
