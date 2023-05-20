@@ -1,13 +1,11 @@
-import Coffee1 from "./image/coffe1.jpg";
-import back from './image/backgrount.png';
+
 
 export function getData() {
     return [
-        {id: '1', title: 'Латте Таро', price: 240, description: '350 мл', Image: Coffee1},
-        {id: '2', title: 'Латте Таро', price: 240, description: 'Вкусно'},
-        {id: '3', title: 'Латте Таро', price: 240, description: 'Вкусно'},
-        {id: '4', title: 'Латте Таро', price: 240, description: 'Вкусно'},
-        {id: '5', title: 'Латте Таро', price: 240, description: 'Вкусно'},
-        {id: '6', title: 'Фон', Image: back},
+        {id: '1', title: 'Латте Таро', price: 1, description: '350 л', count: 0},
+        {id: '2', title: 'Латте Таро', price: 1, description: '350 мл', count: 0},
+        {id: '3', title: 'Латте Таро', price: 1, description: '350 мл', count: 0},
+        {id: '4', title: 'Латте Таро', price: 1, description: '350 мл', count: 0},
+        {id: '5', title: 'Латте Таро', price: 1, description: '350 мл', count: 0},
     ];
 }

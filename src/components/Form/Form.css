@@ -8,12 +8,15 @@
     width: 100%;
     padding: 20px;
     background: linear-gradient(white, antiquewhite);
+    font-family: Palatino, URW Palladio L, serif;
 }
 
 h4 {
     color: black;
     justify-content: left;
+    font-family: Palatino, URW Palladio L, serif;
 }
+
 .input {
     width: 50%;
     padding: 10px;
@@ -21,6 +24,7 @@ h4 {
     border: 1px solid rgba(255, 187, 86, 1);
     border-radius: 0.25rem;
     justify-content: left;
+    font-family: Palatino, URW Palladio L, serif;
 }
 
 .item {
@@ -36,7 +40,7 @@ h4 {
     top: 40px;
     margin-bottom: 4px;
 
-    font-family: 'Montserrat';
+    font-family: Palatino, URW Palladio L, serif;
     font-style: normal;
     font-weight: 700;
     font-size: 23px;
@@ -57,5 +61,11 @@ h4 {
     /*background: #FADEB3;*/
     background: #ffcc99;
     border: 0;
+    font-weight: bold;
+    font-family: Palatino, URW Palladio L, serif;
+}
+
+h3 {
+    color: red;
     font-weight: bold;
 }

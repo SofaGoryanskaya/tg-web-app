@@ -10,15 +10,9 @@ const getTotalPrice = (items = []) => {
     }, 0)
 }
 
-const products = [
-    {id: '1', title: 'Латте Таро', price: 1, description: '350 л', count: 0},
-    {id: '2', title: 'Латте Таро', price: 1, description: '350 мл', count: 0},
-    {id: '3', title: 'Латте Таро', price: 1, description: '350 мл', count: 0},
-    {id: '4', title: 'Латте Таро', price: 1, description: '350 мл', count: 0},
-    {id: '5', title: 'Латте Таро', price: 1, description: '350 мл', count: 0},
-]
+const { getData } = require("../BD/BD");
+const products = getData();
 let flagCount = 0;
-
 
 const Form = ()=> {
 
@@ -79,6 +73,11 @@ const Form = ()=> {
         setAddedItems(newItems);
         totalPrice(getTotalPrice(newItems));
 
+    }
+    function flagCountPopupModal(flagCount) {
+        if (flagCount >10) {
+            return <h3>STOP</h3>
+        }
     }
 
 

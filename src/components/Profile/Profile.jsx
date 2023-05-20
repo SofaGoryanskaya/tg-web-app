@@ -57,7 +57,7 @@ const Profile = () => {
     }, [number, comment, subjectONE, subjectTWO, numberOrder, dataMsg])
 
     useEffect(() => {
-        setDayaMsg( Data.getHours() + ":" + Data.getMinutes() + ":" + Data.getSeconds() + " " + Data.getDate() + "." + fMonth + "." + Data.getFullYear());
+        setDayaMsg( Data.getHours() + ":" + Data.getMinutes()  + " " + Data.getDate() + "." + fMonth + "." + Data.getFullYear());
         tg.onEvent('mainButtonClicked', onSendData)
         return () => {
             tg.offEvent('mainButtonClicked', onSendData)

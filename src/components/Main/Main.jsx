@@ -8,10 +8,11 @@ const Main = () => {
     const onClick = () => {
         window.location.assign('https://tg-bot-d412c.web.app');
     }
+    const {user} = useTelegram();
 
     return (
         <div className={'main'} >
-            <Header/>
+            <span className={'textUsermain'}> {user?.username}</span>
             <p className={'headerNameApp'}>
                 Университет <b className={"coffe"}> кофе</b>
             </p>
