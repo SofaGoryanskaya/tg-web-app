@@ -5,7 +5,7 @@ import {BrowserRouter} from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    //для навигации в Single Page Appl
+    //для навигации в Single Page App
 
   <React.StrictMode>
       <BrowserRouter>
