@@ -1,5 +1,5 @@
-Проект "untitled7-front" - отвечает за фронт
-"untitled7-back" - сам бот
+tg-web-app = front
+tg-web-app-node = back
 
 Form - страница для формирование корзины; ProductItem - для прорисовки одной единицы
 Profile - страницы для оформления заказа
