@@ -29,7 +29,7 @@
     font-family: Palatino, URW Palladio L, serif;
 }
 .makingOrder {
-    margin-left: 5%;
+    margin-left: 15%;
     margin-top: 10px;
     margin-bottom: 10px;
     font-size: 25px;
@@ -41,4 +41,13 @@
     margin-top: 30px;
     height: 132px;
 
+}
+.mainButtonOrder {
+    background: #583635;
+    color: white;
+    font-family: Palatino, URW Palladio L, serif;
+    font-size: large;
+    width: 90%;
+    border: none;
+    border-radius: 5px;
 }

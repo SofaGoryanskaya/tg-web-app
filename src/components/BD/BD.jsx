@@ -1,6 +1,6 @@
 
 const products = [
-    {id: '1', title: 'Свежезаваренный', price: 1, description: '350 л', count: 0, type: "classic"},
+    {id: '1', title: 'Свежезаваренный', price: 100, description: '350 л', count: 0, type: "classic"},
     {id: '2', title: 'Эспрессо', price: 1, description: '350 мл', count: 0, type: "classic"},
     {id: '3', title: 'Капучино', price: 1, description: '350 мл', count: 0, type: "classic"},
     {id: '4', title: 'Латте', price: 1, description: '350 мл', count: 0, type: "classic"},
