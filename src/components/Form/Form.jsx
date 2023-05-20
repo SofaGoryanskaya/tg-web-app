@@ -20,7 +20,7 @@ const Form = ()=> {
     const [price, totalPrice] = useState(0);
     const {tg} = useTelegram();
     const onClick = () => {
-        window.location.assign('https://tg-bot-d412c.web.app/prof');
+        window.location.assign('https://tg-bot-2-a0669.web.app/prof');
     }
 
     const [addedItems, setAddedItems] = useState([]);
@@ -73,11 +73,6 @@ const Form = ()=> {
         setAddedItems(newItems);
         totalPrice(getTotalPrice(newItems));
 
-    }
-    function flagCountPopupModal(flagCount) {
-        if (flagCount >10) {
-            return <h3>STOP</h3>
-        }
     }
 
 
