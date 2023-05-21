@@ -1,6 +1,7 @@
 import React from 'react';
 import './ProductItem.css';
 import Button from "../Button/Button";
+import photoLabelOreder from "../Profile/Frame 36.svg";
 
  const ProductItem = ({product, className, onAdd, removeProduct}) => {
     const onAddHandler = () => {
@@ -10,6 +11,7 @@ import Button from "../Button/Button";
         removeProduct(product);
     }
     return (
+        <div>
         <div className={'product ' + className}>
             <div className={'img'}/>
             <div className={'title'}>{product.title}</div>
@@ -24,6 +26,8 @@ import Button from "../Button/Button";
             <Button className={'remove'} onClick={handleDecrement}>
                 Удалить
             </Button>
+        </div>
+            <img className={"photoLabelCheck"} src={photoLabelOreder}/>
         </div>
     );
 };

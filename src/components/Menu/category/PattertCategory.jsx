@@ -1,16 +1,14 @@
 import React from 'react';
-import ParentCoffee from "../ParentCoffee";
 import "../Menu.css"
+import arrow from "../../BD/Vector.svg";
+import "../../Form/Form.css";
+import coldcoffee from "./coldcof.svg";
 const PattertCategory = ({titleProduct}) => {
-    const onClick = () => {
-        window.location.assign('https://tg-bot-2-a0669.web.app/menu');
-    }
+
     return (
-        <div>
-            <p className={'headerMenu'}> {titleProduct} </p>
-            <button onClick={onClick} className={'btnBack'}>
-                <span className={'textBtnBack'}> Назад </span>
-            </button>
+        <div className="menuCategory">
+
+
 
         </div>
     );

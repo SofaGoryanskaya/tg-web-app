@@ -3,6 +3,7 @@ import './Menu.css';
 import photoLabel from "../Form/Takeaway coffee.svg";
 import ParentCoffee from "./ParentCoffee";
 import "../../App.css";
+import "../Main/Main.css";
 
 const { getData } = require("../BD/BD");
 const products = getData();
@@ -40,9 +41,8 @@ const Menu = ()=> {
 
     return (
         <div className={"menu"}>
-            <p className={'pattertHeader'}>
-                Университет <b className={"coffe"}> кофе</b>
-            </p>
+            <p className={'headerMenu'}>  Университет <b className={"coffe"}> кофе</b> </p>
+
             <div className={"textSelect"}>Выбор раздела меню</div>
 
             <select value={article}  onChange={onChangeSubjectONE}  className={'select'} >
@@ -50,7 +50,7 @@ const Menu = ()=> {
                 <option value={'classic_coffee'} >Кофе классический</option>
                 <option value={'author_coffee'} >Авторский кофе </option>
                 <option value={'tea'} >Чай </option>
-                <option value={'cold'} >Холодны напитки </option>
+                <option value={'cold'} >Холодные напитки </option>
                 <option value={'new'} >Новинки </option>
             </select>
             <button onClick={onChangeSubjectArticle} className="buttonChangeArticle"> Перейти </button>

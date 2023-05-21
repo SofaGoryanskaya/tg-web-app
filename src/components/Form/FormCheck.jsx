@@ -4,6 +4,7 @@ import ProductItem from "../ProductItem/ProductItem";
 import photoLabel from "./Takeaway coffee.svg";
 import "./Form.css"
 
+
 const getTotalPrice = (items = []) => {
     return items.reduce((acc, item) => {
         return acc += item.price
@@ -22,13 +23,21 @@ const products = order
     })
     : getData();
 
+const saveProduct = (product) => {
+    const index = products.indexOf(products.find(p => p.id === product.id))
+
+    if (index) {
+        products[index] = product;
+    }
+}
+
 
 let flagCount = 0;
 
 const FormCheck = () => {
     const [country, setCountry] = useState('' ? ' ' : JSON.parse(window.sessionStorage.getItem('name')));
     const [price, totalPrice] = useState(products.reduce((price, product) => price + product.price * product.count, 0));
-    const [addedItems, setAddedItems] = useState([]);
+    const [addedItems, setAddedItems] = useState(products.filter(p => p.count > 0));
     const {tg} = useTelegram();
 
     const  onClickMainButton = () => {
@@ -48,7 +57,9 @@ const FormCheck = () => {
         flagCount +=1;
         setAddedItems(newItems);
         totalPrice(getTotalPrice(newItems));
+        saveProduct(newItems);
         window.sessionStorage.setItem("order", JSON.stringify(products));
+
     }
     const removeProduct = (product) => {
         let newItems = [];
@@ -58,12 +69,15 @@ const FormCheck = () => {
             newItems = addedItems.filter(item => item.id !== product.id);
             setAddedItems(newItems);
             totalPrice(getTotalPrice(newItems));
+            saveProduct(newItems);
             window.sessionStorage.setItem("order", JSON.stringify(products));
+
         }
     }
     const onChangeCountry = (e) => {
         setCountry(e.target.value)
         window.sessionStorage.setItem("name", JSON.stringify(country));
+
     }
 
     return (
@@ -85,6 +99,7 @@ const FormCheck = () => {
                     onAdd={onAdd}
                     removeProduct={removeProduct}
                     className={'item'}
+
                 />
             )
             })}

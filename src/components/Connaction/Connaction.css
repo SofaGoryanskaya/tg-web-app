@@ -1,5 +1,6 @@
 .map {
     background: linear-gradient(white, #FFCC99);
+    font-family: Palatino, URW Palladio L, serif;
 }
 
 .headerNameMap {
@@ -8,31 +9,74 @@
     color: black;
     margin-top: 20px;
     margin-bottom: 20px;
-    font-family: Palatino, URW Palladio L, serif;
+
 }
 .coffe {
     font-weight: bold;
     font-size: 30px;
 }
-.numberCoffe {
-    margin-top: 18px;
+.numberCoffee {
     color: black;
-    font-family: Palatino, URW Palladio L, serif;
-    font-size: medium;
+
+    font-size: large;
     border: 1px #FAC28EFF;
     border-radius: 5px;
-    margin-left: 5px;
+    margin-left: 5%;
+
 }
 .copyInt {
     color:black;
     background: none;
     font-size: medium;
-    font-family: Palatino, URW Palladio L, serif;
+
     border: rgba(136, 35, 35, 0.42);
     margin-top: 7px;
     width: 50%;
+    line-height: normal;
 
 }
 .contactinf {
-    color: dimgrey;
+    color: black;
+    font-weight: bold;
+    margin-top: 5%;
+    margin-bottom: 2%;
+    margin-left: 2%;
+    line-height: normal;
+    font-size: large;
+
+}
+.numberPhone{
+    font-family: Palatino, URW Palladio L, serif;
+    font-size: medium;
+    background: none;
+    margin-left: 15%;
+    border: none;
+    border-bottom: black;
+    text-decoration-line: underline;
+    text-decoration-color: black;
+}
+.copyBtn {
+    border: none;
+    background: none;
+    margin-left: 6%;
+}
+.copy {
+    width: 20px;
+}
+.headerNameApp{
+    margin-bottom: 20px;
+}
+.block {
+    margin-top: 3%;
+}
+.tableCoffee {
+    font-family: Palatino, URW Palladio L, serif;
+    font-size: large;
+    background: none;
+    margin-left: 5%;
+   line-height: 150%;
+    color: black;
+}
+.photo {
+    margin-top: -10%;
 }

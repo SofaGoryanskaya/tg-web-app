@@ -13,9 +13,7 @@
 }
 
 .headerMenu {
-    margin-left: 13%;
-    margin-top: 10px;
-    margin-bottom: 6px;
+    margin: 1% auto 10px;
     font-size: 28px;
     color: #000000;
     font-family: Palatino, URW Palladio L, serif;
@@ -46,4 +44,52 @@
     cursor: pointer;
     background: white;
     border: 0;
+}
+.buttonChangeArticle {
+   text-align: center;
+    padding: 10px;
+    margin-top: 5px;
+    background: rgba(253, 203, 149, 0.38);
+    /*background:linear-gradient(to right, rgba(253, 203, 149, 0.53), rgb(253, 203, 149));*/
+    color: rgba(51, 0, 0, 0.8);
+    font-size: medium;
+    border-radius: 0.25rem;
+    border: none;
+    font-family: Palatino, URW Palladio L, serif;
+    width: 100%;
+}
+.headerNameApp {
+    margin-bottom: 3%;
+    margin-top: 2%;
+}
+.helpA {
+    margin-bottom: 0;
+}
+.menuCategory {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 20px;
+    font-family: Palatino, URW Palladio L, serif;
+}
+.arrowCateg {
+    width: 10%;
+    margin-left: 3px;
+    margin-bottom: -9%;
+}
+.headerMenuCategory {
+   margin-top: 1%;
+    margin-left: auto;
+    margin-right: auto;
+
+    font-size: 28px;
+    color: #000000;
+    font-family: Palatino, URW Palladio L, serif;
+}
+.categoryDrink {
+    width: 100%;
+   margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+
 }

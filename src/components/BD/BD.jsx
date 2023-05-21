@@ -20,7 +20,7 @@ const products = [
     {id: '18', title: 'Раф от пряни', price: 1, description: '350 мл', count: 0, type: "new"},
     {id: '19', title: 'Смузи манго', price: 1, description: '350 мл', count: 0, type: "new"},
     {id: '20', title: 'Раф Organic Cola', price: 1, description: '350 мл', count: 0, type: "new"},
-    {id: '21', title: 'Лимонад маракуйя с косточкой', price: 1, description: '350 мл', count: 0, type: "cold"},
+    {id: '21', title: 'Лимонад маракуйя с косточкой', price: 1, description: '350 мл', count: 0, type: "cold", esse: "asdasdasdasd"},
     {id: '22', title: 'Лимонад Organic Cola', price: 1, description: '350 мл', count: 0, type: "cold"},
     {id: '23', title: 'Смузи манго', price: 1, description: '350 мл', count: 0, type: "cold"},
     {id: '24', title: 'Смузи зеленый', price: 1, description: '350 мл', count: 0, type: "cold"},

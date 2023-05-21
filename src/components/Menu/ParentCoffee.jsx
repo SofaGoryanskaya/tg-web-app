@@ -14,6 +14,9 @@ const ParentCoffee = ({product, className}) => {
             <div className={'priceMenu'}>
                 <span>Стоимость: <b>{product.price}</b></span>
             </div>
+            <div className={'descriptionMenu'}>
+                <span>Описание:<p className="esse">{product.esse} </p></span>
+            </div>
         </div>
     );
 };
