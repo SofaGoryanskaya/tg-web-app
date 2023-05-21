@@ -3,6 +3,7 @@ import "./Profile.css";
 import {useTelegram} from "../../hooks/useTelegram";
 import photoLabelOreder from './Frame 36.svg'
 import "../../App.css";
+import arrow from "../BD/Vector.svg";
 
 let Data = new Date();
 let fMonth;
@@ -90,12 +91,16 @@ const Profile = () => {
     const onChangeSubjectTWO = (e) => {
         setSubjectTWO(e.target.value)
     }
+    const onClickCheck = () => {
+        window.location.assign('https://tg-bot-2-a0669.web.app/checkF');
+    }
+
     return (
         <div className={"prof"}>
             <p className={'pattertHeader'}>
                 Оформление заказа
             </p>
-
+            <img className="arrowProf" src={arrow} onClick={onClickCheck}/>
             <input
                 className={'input'}
                 type="text"

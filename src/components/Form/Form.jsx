@@ -12,6 +12,7 @@ const getTotalPrice = (items = []) => {
 
 const { getData } = require("../BD/BD");
 const products = getData();
+
 let flagCount = 0;
 
 const Form = ()=> {
@@ -69,10 +70,9 @@ const Form = ()=> {
             flagCount -=  product.count;
             product.count = 0;
             newItems = addedItems.filter(item => item.id !== product.id);
+            setAddedItems(newItems);
+            totalPrice(getTotalPrice(newItems));
         }
-        setAddedItems(newItems);
-        totalPrice(getTotalPrice(newItems));
-
     }
 
 
@@ -91,7 +91,7 @@ const Form = ()=> {
 
     return (
         <div className={"form"}>
-            <h4>Введите имя заказчика: </h4>
+            <h4>Введите имя получателя: </h4>
             <input
                 className={'input'}
                 type="text"
@@ -108,9 +108,7 @@ const Form = ()=> {
                             removeProduct = {removeProduct}
                             className={'item'}
                         />
-
                     ))}
-
             <img className={"photo"} src={photoLabel}/>
         </div>
     );

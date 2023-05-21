@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import './Menu.css';
 import photoLabel from "../Form/Takeaway coffee.svg";
 import ParentCoffee from "./ParentCoffee";
+import "../../App.css";
 
 const { getData } = require("../BD/BD");
 const products = getData();
@@ -39,7 +40,7 @@ const Menu = ()=> {
 
     return (
         <div className={"menu"}>
-            <p className={'headerMenu'}>
+            <p className={'pattertHeader'}>
                 Университет <b className={"coffe"}> кофе</b>
             </p>
             <div className={"textSelect"}>Выбор раздела меню</div>

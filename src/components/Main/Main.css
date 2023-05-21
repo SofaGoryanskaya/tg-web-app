@@ -1,6 +1,8 @@
 .main {
     background: linear-gradient(white, #FFCC99);
     font-family: Palatino, URW Palladio L, serif;
+    color: black;
+    width: 100%;
 }
 .word{
     font-weight: bold;
@@ -16,14 +18,23 @@
     line-height: 35px;
 
 }
+.headerNameApp {
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 32px;
+    color: #000000;
+    margin-top: 15px;
+    text-align: center;
+}
+
 .coffe {
     font-weight: bold;
-    font-size: 30px;
+    font-size: 28px;
 }
 .photo {
     margin-top: 50px;
     margin-left: 25%;
 }
-.textUsermain {
+.helpA {
     color: white;
 }

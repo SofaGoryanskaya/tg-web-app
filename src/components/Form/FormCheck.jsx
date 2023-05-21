@@ -13,7 +13,6 @@ const getTotalPrice = (items = []) => {
 
 const { getData } = require("../BD/BD");
 // const products = getData();
-
 const order = JSON.parse(window.sessionStorage.getItem('order'))
 
 const products = order
@@ -27,13 +26,13 @@ const products = order
 let flagCount = 0;
 
 const FormCheck = () => {
-    const [country, setCountry] = useState('');
+    const [country, setCountry] = useState('' ? ' ' : JSON.parse(window.sessionStorage.getItem('name')));
     const [price, totalPrice] = useState(products.reduce((price, product) => price + product.price * product.count, 0));
     const [addedItems, setAddedItems] = useState([]);
     const {tg} = useTelegram();
 
     const  onClickMainButton = () => {
-        window.sessionStorage.setItem("order", JSON.stringify(products));
+
         if(!country || flagCount <= 0){
             window.location.assign('https://tg-bot-2-a0669.web.app/formerror');
         }
@@ -47,11 +46,9 @@ const FormCheck = () => {
         newItems = [...addedItems, product];
         product.count += 1;
         flagCount +=1;
-
         setAddedItems(newItems);
-
         totalPrice(getTotalPrice(newItems));
-
+        window.sessionStorage.setItem("order", JSON.stringify(products));
     }
     const removeProduct = (product) => {
         let newItems = [];
@@ -61,18 +58,18 @@ const FormCheck = () => {
             newItems = addedItems.filter(item => item.id !== product.id);
             setAddedItems(newItems);
             totalPrice(getTotalPrice(newItems));
+            window.sessionStorage.setItem("order", JSON.stringify(products));
         }
-
     }
-
     const onChangeCountry = (e) => {
         setCountry(e.target.value)
+        window.sessionStorage.setItem("name", JSON.stringify(country));
     }
 
     return (
         <div className={"form"}>
             <button className="totalPrice" onClick={onClickMainButton} > 🛒 {price} </button>
-            <h4>Введите имя заказчика: </h4>
+            <h4>Введите имя получателя: </h4>
             <input
                 className={'input'}
                 type="text"

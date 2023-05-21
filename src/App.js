@@ -10,7 +10,6 @@ import Connection from "./components/Connaction/Connection";
 import ColdCoffee from "./components/Menu/category/ColdCoffee";
 import FormCheck from "./components/Form/FormCheck";
 import FormError from "./components/Form/FormError";
-import ProfileCheck from "./components/Profile/ProfileCheck";
 
 function App() {
     const {tg} = useTelegram();
@@ -20,9 +19,7 @@ function App() {
     [])
 //отрисовка по корневому пути
   return (
-
           <div className="App">
-
               <Routes>
                   <Route path={'main'} element={ <Main/>}></Route>
                   <Route path={'form'} element={<Form />}/>

@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    padding: 20px;
+    padding: 5%;
     background: linear-gradient(white, antiquewhite);
     font-family: Palatino, URW Palladio L, serif;
 }
@@ -10,7 +10,6 @@
 h4 {
     color: black;
     justify-content: left;
-    font-family: Palatino, URW Palladio L, serif;
 }
 
 .input {
@@ -20,7 +19,6 @@ h4 {
     border: 1px solid rgba(255, 187, 86, 1);
     border-radius: 0.25rem;
     justify-content: left;
-    font-family: Palatino, URW Palladio L, serif;
 }
 
 .item {
@@ -50,20 +48,14 @@ h3 {
     font-weight: bold;
 }
 .errorMsg {
-    color: white;
-    font-family: Palatino, URW Palladio L, serif;
     font-size: large;
+    margin-left: 5%;
+    margin-top: 5%;
+    color: black;
+    text-align: center;
 }
 .errorMsgImportant {
     color: #882323;
-}
-.btnBackError {
-    background: none;
-    margin-bottom: 7px;
-    color: white;
-    font-size: large;
-    display: inline-block;
-
 }
 
 .checkMainButton {
@@ -82,17 +74,16 @@ h3 {
     position: fixed;
     left: 97%;
     transform: translate(-90%, 0);
-
-    width: 48px;
-    height: 40px;
-    /*color: #882323;*/
+    width: 13%;
+    height: 10%;
     color: black;
     border-radius: 10px;
-
     background: #ffcc99;
-    /*background: #583635;*/
-
     border: 0;
     font-weight: bold;
     font-family: Palatino, URW Palladio L, serif;
+}
+.arrow {
+    width: 10%;
+    /*display: inline-block;*/
 }
