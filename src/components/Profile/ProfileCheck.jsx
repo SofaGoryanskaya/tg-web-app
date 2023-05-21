@@ -1,8 +1,8 @@
-import React, {useCallback, useEffect, useState} from 'react';
+import React, {useCallback, useState} from 'react';
 import "./Profile.css";
 import {useTelegram} from "../../hooks/useTelegram";
 import photoLabelOreder from './Frame 36.svg'
-
+import "../../App.css";
 
 let Data = new Date();
 let fMonth;
@@ -47,7 +47,7 @@ const Profile = () => {
     }
     const onSendData = useCallback(() => {
         setDayaMsg( Data.getHours() + ":" + Data.getMinutes()  + " " + Data.getDate() + "." + fMonth + "." + Data.getFullYear());
-        onClose();
+
         const data = {
             number,
             comment,
@@ -57,9 +57,8 @@ const Profile = () => {
             dataMsg
         }
         tg.sendData(JSON.stringify(data));
+        onClose();
     }, [number, comment, subjectONE, subjectTWO, numberOrder, dataMsg])
-
-
 
     // useEffect(() => {
     //     setDayaMsg( Data.getHours() + ":" + Data.getMinutes()  + " " + Data.getDate() + "." + fMonth + "." + Data.getFullYear());
@@ -68,8 +67,6 @@ const Profile = () => {
     //         tg.offEvent('mainButtonClicked', onSendData)
     //     }
     // }, [onSendData])
-
-
 
     const onChangeCountry = (e) => {
         setNumber(e.target.value)
@@ -85,7 +82,7 @@ const Profile = () => {
     }
     return (
         <div className={"prof"}>
-            <p className={'makingOrder'}>
+            <p className={'pattertHeader'}>
                 Оформление заказа
             </p>
             <input

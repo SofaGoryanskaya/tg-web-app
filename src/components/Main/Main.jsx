@@ -3,6 +3,7 @@ import Header from "../Header/Header";
 import './Main.css';
 import {useTelegram} from "../../hooks/useTelegram";
 import photoLabel from "../Form/Takeaway coffee.svg";
+import "../../App.css";
 
 const Main = () => {
     const onClick = () => {
@@ -12,8 +13,7 @@ const Main = () => {
 
     return (
         <div className={'main'} >
-            <span className={'textUsermain'}> {user?.username}</span>
-            <p className={'headerNameApp'}>
+            <p className={'pattertHeader'}>
                 Университет <b className={"coffe"}> кофе</b>
             </p>
             <p className={"text"}>  Мы готовим кофе с особым отношением к нашим гостям, поэтому

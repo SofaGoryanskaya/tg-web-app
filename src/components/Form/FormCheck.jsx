@@ -12,17 +12,28 @@ const getTotalPrice = (items = []) => {
 }
 
 const { getData } = require("../BD/BD");
-const products = getData();
-let flagCount = 0;
+// const products = getData();
 
+const order = JSON.parse(window.sessionStorage.getItem('order'))
+
+const products = order
+    ? getData().map(item => {
+        const sought = order.find(v => v.id === item.id)
+        return sought ? sought : item
+    })
+    : getData();
+
+
+let flagCount = 0;
 
 const FormCheck = () => {
     const [country, setCountry] = useState('');
-    const [price, totalPrice] = useState(0);
+    const [price, totalPrice] = useState(products.reduce((price, product) => price + product.price * product.count, 0));
     const [addedItems, setAddedItems] = useState([]);
     const {tg} = useTelegram();
 
     const  onClickMainButton = () => {
+        window.sessionStorage.setItem("order", JSON.stringify(products));
         if(!country || flagCount <= 0){
             window.location.assign('https://tg-bot-2-a0669.web.app/formerror');
         }
@@ -38,6 +49,7 @@ const FormCheck = () => {
         flagCount +=1;
 
         setAddedItems(newItems);
+
         totalPrice(getTotalPrice(newItems));
 
     }
@@ -47,9 +59,9 @@ const FormCheck = () => {
             flagCount -=  product.count;
             product.count = 0;
             newItems = addedItems.filter(item => item.id !== product.id);
+            setAddedItems(newItems);
+            totalPrice(getTotalPrice(newItems));
         }
-        setAddedItems(newItems);
-        totalPrice(getTotalPrice(newItems));
 
     }
 
@@ -59,7 +71,7 @@ const FormCheck = () => {
 
     return (
         <div className={"form"}>
-            <button className="totalPrice" onClick={onClickMainButton}> 🛒 {price} </button>
+            <button className="totalPrice" onClick={onClickMainButton} > 🛒 {price} </button>
             <h4>Введите имя заказчика: </h4>
             <input
                 className={'input'}
@@ -68,18 +80,17 @@ const FormCheck = () => {
                 value={country}
                 onChange={onChangeCountry}
             />
-            {/*<button className={'totalPrice'} disabled> {price} </button>*/}
 
-
-            {products.map(item => (
+            {products.map(item => {
+                return (
                 <ProductItem
                     product={item}
                     onAdd={onAdd}
-                    removeProduct = {removeProduct}
+                    removeProduct={removeProduct}
                     className={'item'}
                 />
-            ))}
-
+            )
+            })}
 
             <img className={"photo"} src={photoLabel}/>
         </div>

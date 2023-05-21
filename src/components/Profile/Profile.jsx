@@ -2,6 +2,7 @@ import React, {useCallback, useEffect, useState} from 'react';
 import "./Profile.css";
 import {useTelegram} from "../../hooks/useTelegram";
 import photoLabelOreder from './Frame 36.svg'
+import "../../App.css";
 
 let Data = new Date();
 let fMonth;
@@ -72,11 +73,7 @@ const Profile = () => {
     }, [])
 
     useEffect(() => {
-        if(!comment || !number) {
-            tg.MainButton.hide();
-        } else {
             tg.MainButton.show();
-        }
     }, [number, comment])
 
     const onChangeCountry = (e) => {
@@ -95,7 +92,7 @@ const Profile = () => {
     }
     return (
         <div className={"prof"}>
-            <p className={'makingOrder'}>
+            <p className={'pattertHeader'}>
                 Оформление заказа
             </p>
 

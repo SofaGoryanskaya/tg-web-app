@@ -1,26 +1,28 @@
 import React from 'react';
+import PattertCategory from "./PattertCategory";
 import ParentCoffee from "../ParentCoffee";
-import "../Menu.css"
+import "../Menu.css";
+import photoLabel from "../../Form/Takeaway coffee.svg";
 
 const { getDataColdCoffe } = require("../../BD/BD");
 const products = getDataColdCoffe();
 const ColdCoffee = () => {
-    const onClick = () => {
-        window.location.assign('https://tg-bot-2-a0669.web.app/menu');
-    }
-    return (
-        <div className={"menu"}>
-            <button onClick={onClick} className={'btnBack'}>
-                <span className={'textBtnBack'}> Назад </span>
-            </button>
 
-            <p className={'headerNameApp'}> Холодные напитки </p>
+    return (
+        <div className="menu">
+            <PattertCategory
+                titleProduct = {'Холодные напитки'}
+            />
+
             {products.map(item => (
                 <ParentCoffee
                     product={item}
                     className={'item'}
                 />
             ))}
+
+
+            <img className={"photo"} src={photoLabel}/>
         </div>
     );
 };

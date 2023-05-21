@@ -99,7 +99,7 @@ const Form = ()=> {
                 value={country}
                 onChange={onChangeCountry}
             />
-            <button className={'totalPrice'} disabled> {price} </button>
+            <button className={'totalPrice'} disabled> 🛒 {price} </button>
 
             {products.map(item => (
                         <ProductItem

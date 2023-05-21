@@ -12,15 +12,17 @@
     font-family: Palatino, URW Palladio L, serif;
 }
 
-.headerNameApp {
-    margin-left: 7%;
+.headerMenu {
+    margin-left: 13%;
     margin-top: 10px;
-    font-size: 30px;
+    margin-bottom: 6px;
+    font-size: 28px;
     color: #000000;
+    font-family: Palatino, URW Palladio L, serif;
 }
 .coffe {
     font-weight: bold;
-    font-size: 28px;
+    font-size: 23px;
 }
 .buttonChangeArticle {
     color: black;
@@ -29,6 +31,8 @@
     background: antiquewhite;
     border-radius: 0;
     border: 0;
+    width: 25px;
+    margin-top: 5px;
 }
 .textBtnBack {
     color: black;

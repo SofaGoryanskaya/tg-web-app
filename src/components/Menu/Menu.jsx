@@ -17,23 +17,40 @@ const Menu = ()=> {
     }
     const onChangeSubjectArticle = (e) => {
         setArticle(e.target.value)
-        if (article === 'cold') {
+        if (article === 'all') {
+            onClick('menu')
+        }
+        else if (article === 'classic_coffee') {
+            onClick('classic_coffee')
+        }
+        else if (article === 'author_coffee') {
+            onClick('author_coffee')
+        }
+        else if (article === 'tea') {
+            onClick('tea')
+        }
+        else if (article === 'cold') {
             onClick('cold')
+        }
+        else if (article === 'new') {
+            onClick('new')
         }
     }
 
     return (
         <div className={"menu"}>
-            <p className={'headerNameApp'}>
+            <p className={'headerMenu'}>
                 Университет <b className={"coffe"}> кофе</b>
             </p>
             <div className={"textSelect"}>Выбор раздела меню</div>
 
-
             <select value={article}  onChange={onChangeSubjectONE}  className={'select'} >
-                <option value={'все'} >Все</option>
-                <option value={'cold'} >Холодные напитки</option>
-                <option value={'tea'} >Чаи </option>
+                <option value={'all'} >Все</option>
+                <option value={'classic_coffee'} >Кофе классический</option>
+                <option value={'author_coffee'} >Авторский кофе </option>
+                <option value={'tea'} >Чай </option>
+                <option value={'cold'} >Холодны напитки </option>
+                <option value={'new'} >Новинки </option>
             </select>
             <button onClick={onChangeSubjectArticle} className="buttonChangeArticle"> Перейти </button>
 

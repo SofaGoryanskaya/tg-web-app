@@ -26,7 +26,7 @@ function App() {
               <Routes>
                   <Route path={'main'} element={ <Main/>}></Route>
                   <Route path={'form'} element={<Form />}/>
-                  <Route path={'prof'} element={<ProfileCheck />}/>
+                  <Route path={'prof'} element={<Profile />}/>
                   <Route path={"map"} element={<Connection/>}/>
 
                   <Route path={'menu'} index element={<Menu />}/>

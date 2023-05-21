@@ -7,3 +7,9 @@ body {
     color: var(--tg-theme-text-color);
     background: var(--tg-theme-bg-color);
 }
+.pattertHeader {
+    margin: 7px auto 10px;
+    font-size: 25px;
+    color: #000000;
+    font-family: Palatino, URW Palladio L, serif;
+}
