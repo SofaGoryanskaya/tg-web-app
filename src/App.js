@@ -7,9 +7,13 @@ import Form from "./components/Form/Form";
 import Main from "./components/Main/Main";
 import Profile from "./components/Profile/Profile";
 import Connection from "./components/Connaction/Connection";
-import ColdCoffee from "./components/Menu/category/ColdCoffee";
+import ColdCoffee from "./components/Menu/Cold/ColdCoffee";
 import FormCheck from "./components/Form/FormCheck";
 import FormError from "./components/Form/FormError";
+import Authorcoffee from "./components/Menu/AuthorCoffee/Authorcoffee";
+import Classiccoffee from "./components/Menu/Classiccoffee/Classiccoffee";
+import Tea from "./components/Menu/Tea/Tea";
+import New from "./components/Menu/New/New";
 
 function App() {
     const {tg} = useTelegram();
@@ -28,7 +32,10 @@ function App() {
 
                   <Route path={'menu'} index element={<Menu />}/>
                   <Route path={'cold'} element={<ColdCoffee />}/>
-
+                  <Route path={'author_coffee'} element={<Authorcoffee />}/>
+                  <Route path={'classic_coffee'} element={<Classiccoffee />}/>
+                  <Route path={'tea'} element={<Tea />}/>
+                  <Route path={'new'} element={<New />}/>
                   <Route path={'checkF'} element={<FormCheck />}/>
                   <Route path={'formerror'} element={<FormError />}/>
               </Routes>

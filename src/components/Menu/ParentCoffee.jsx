@@ -8,14 +8,14 @@ const ParentCoffee = ({product, className}) => {
 
     return (
         <div className={'productMenu ' + className}>
-            <div className={'imgMenu'}/>
+            <div > <img src ={product.img} className='imgMenu' /> </div>
             <div className={'titleMenu'}>{product.title}</div>
             <div className={'descriptionMenu'}>{product.description}</div>
             <div className={'priceMenu'}>
                 <span>Стоимость: <b>{product.price}</b></span>
             </div>
             <div className={'descriptionMenu'}>
-                <span>Описание:<p className="esse">{product.esse} </p></span>
+                <span>Описание: {product.esse} </span>
             </div>
         </div>
     );

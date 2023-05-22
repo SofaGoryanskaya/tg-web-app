@@ -66,6 +66,7 @@
 .headerNameApp {
     margin-bottom: 3%;
     margin-top: 2%;
+
 }
 .helpA {
     margin-bottom: 0;
@@ -97,4 +98,8 @@
     margin-right: auto;
     margin-bottom: 10px;
 
+}
+.orderLast {
+    margin-left: 95%;
+    margin-bottom: -8%;
 }

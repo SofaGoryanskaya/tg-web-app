@@ -8,11 +8,16 @@ import "../Main/Main.css";
 const { getData } = require("../BD/BD");
 const products = getData();
 
+
 const Menu = ()=> {
     const [article, setArticle] = useState('');
     const onClick = (article) => {
         window.location.assign(' https://tg-bot-2-a0669.web.app/' + article);
     }
+    const replaceOrder = () => {
+        window.location.assign(' https://tg-bot-2-a0669.web.app/checkF');
+    }
+
 
     const onChangeSubjectONE = (e) => {
         setArticle(e.target.value)
@@ -41,6 +46,7 @@ const Menu = ()=> {
 
     return (
         <div className={"menu"}>
+            <div className="orderLast" onClick={replaceOrder} > 🛒  </div>
             <p className={'headerMenu'}>  Университет <b className={"coffe"}> кофе</b> </p>
 
             <div className={"textSelect"}>Выбор раздела меню</div>

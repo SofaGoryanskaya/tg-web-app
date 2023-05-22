@@ -1,5 +1,4 @@
-import React, {useEffect, useState} from 'react';
-import {useTelegram} from "../../hooks/useTelegram";
+import React, {useState} from 'react';
 import ProductItem from "../ProductItem/ProductItem";
 import photoLabel from "./Takeaway coffee.svg";
 import "./Form.css"
@@ -16,15 +15,15 @@ const { getData } = require("../BD/BD");
 // const products = getData();
 const order = JSON.parse(window.sessionStorage.getItem('order'))
 
-// const products = order
-//     ? getData().map(item => {
-//         const sought = order.find(v => v.id === item.id)
-//         return sought ? sought : item
-//     })
-//     : getData();
+const products = order
+    ? getData().map(item => {
+        const sought = order.find(v => v.id === item.id)
+        return sought ? sought : item
+    })
+    : getData();
 
-
-const products = order ? order : getData();
+//
+// const products = order ? order : getData();
 
 
 const saveProduct = (product) => {
@@ -42,11 +41,13 @@ const FormCheck = () => {
     const [country, setCountry] = useState('' ? ' ' : JSON.parse(window.sessionStorage.getItem('name')));
     const [price, totalPrice] = useState(products.reduce((price, product) => price + product.price * product.count, 0));
     const [addedItems, setAddedItems] = useState(products.filter(p => p.count > 0));
-    const {tg} = useTelegram();
+    // const [price, totalPrice] = useState(0);
+
 
     const  onClickMainButton = () => {
 
-        if(!country || flagCount <= 0){
+        // if(!country || flagCount <= 0){
+        if(!country || price <= 0){
             window.location.assign('https://tg-bot-2-a0669.web.app/formerror');
         }
         else {
@@ -61,6 +62,7 @@ const FormCheck = () => {
         flagCount +=1;
         setAddedItems(newItems);
         totalPrice(getTotalPrice(newItems));
+        // totalPrice((product.price * product.count) + );
         saveProduct(product);
         window.sessionStorage.setItem("order", JSON.stringify(products));
 
@@ -73,6 +75,7 @@ const FormCheck = () => {
             newItems = addedItems.filter(item => item.id !== product.id);
             setAddedItems(newItems);
             totalPrice(getTotalPrice(newItems));
+            // totalPrice(product.price * product.count);
             saveProduct(product);
             window.sessionStorage.setItem("order", JSON.stringify(products));
 

@@ -13,7 +13,8 @@ import photoLabelOreder from "../Profile/Frame 36.svg";
     return (
         <div>
         <div className={'product ' + className}>
-            <div className={'img'}/>
+            {/*<div className={'img'}/>*/}
+            <div > <img src ={product.img} className='img' /> </div>
             <div className={'title'}>{product.title}</div>
             <div className={'description'}>{product.description}</div>
             <div className={'price'}>
@@ -27,7 +28,7 @@ import photoLabelOreder from "../Profile/Frame 36.svg";
                 Удалить
             </Button>
         </div>
-            <img className={"photoLabelCheck"} src={photoLabelOreder}/>
+            {/*<img className={"photoLabelCheck"} src={photoLabelOreder}/>*/}
         </div>
     );
 };
