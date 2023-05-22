@@ -16,12 +16,16 @@ const { getData } = require("../BD/BD");
 // const products = getData();
 const order = JSON.parse(window.sessionStorage.getItem('order'))
 
-const products = order
-    ? getData().map(item => {
-        const sought = order.find(v => v.id === item.id)
-        return sought ? sought : item
-    })
-    : getData();
+// const products = order
+//     ? getData().map(item => {
+//         const sought = order.find(v => v.id === item.id)
+//         return sought ? sought : item
+//     })
+//     : getData();
+
+
+const products = order ? order : getData();
+
 
 const saveProduct = (product) => {
     const index = products.indexOf(products.find(p => p.id === product.id))
@@ -57,7 +61,7 @@ const FormCheck = () => {
         flagCount +=1;
         setAddedItems(newItems);
         totalPrice(getTotalPrice(newItems));
-        saveProduct(newItems);
+        saveProduct(product);
         window.sessionStorage.setItem("order", JSON.stringify(products));
 
     }
@@ -69,7 +73,7 @@ const FormCheck = () => {
             newItems = addedItems.filter(item => item.id !== product.id);
             setAddedItems(newItems);
             totalPrice(getTotalPrice(newItems));
-            saveProduct(newItems);
+            saveProduct(product);
             window.sessionStorage.setItem("order", JSON.stringify(products));
 
         }

@@ -15,17 +15,15 @@ const ColdCoffee = () => {
     }
     return (
         <div className="menu">
-            <img className="categoryDrink" src={coldcoffee}/>
-
             <img className="arrowCateg" src={arrow} onClick={onBack}/>
+            <img className="categoryDrink" src={coldcoffee}/>
 
             {products.map(item => (
                 <ParentCoffee
                     product={item}
-                    className={'item'}
+                    className={'itemMenu'}
                 />
             ))}
-
             <img className="categoryDrink" src={lastlabel}/>
             {/*<img className={"photo"} src={photoLabel}/>*/}
         </div>
