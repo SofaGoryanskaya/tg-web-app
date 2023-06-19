@@ -3,7 +3,8 @@ import {getDataCategory} from "../../BD/BD";
 import arrow from "../../BD/Vector.svg";
 import ParentCoffee from "../ParentCoffee";
 import lastlabel from "../Cold/last.svg";
-import newimg from "./new.svg";
+import classic from "../New/new.svg";
+
 const New = () => {
     const { getDataCategory } = require("../../BD/BD");
     const products = getDataCategory("new");
@@ -17,7 +18,7 @@ const New = () => {
         <div className="menu">
             <div className="orderLast" onClick={replaceOrder} > 🛒  </div>
             <img className="arrowCateg" src={arrow} onClick={onBack}/>
-            <img className="categoryDrink" src={newimg}/>
+            <img className="categoryDrink" src={classic}/>
             {products.map(item => (
                 <ParentCoffee
                     product={item}

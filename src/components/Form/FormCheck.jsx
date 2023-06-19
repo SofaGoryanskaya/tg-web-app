@@ -25,7 +25,6 @@ const products = order
 //
 // const products = order ? order : getData();
 
-
 const saveProduct = (product) => {
     const index = products.indexOf(products.find(p => p.id === product.id))
 

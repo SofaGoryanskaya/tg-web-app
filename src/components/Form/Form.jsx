@@ -15,11 +15,13 @@ const products = getData();
 
 let flagCount = 0;
 
+
 const Form = ()=> {
 
     const [country, setCountry] = useState('');
     const [price, totalPrice] = useState(0);
-    const {tg} = useTelegram();
+    const {tg, user, photo_url} = useTelegram();
+
     const onClick = () => {
         window.location.assign('https://tg-bot-2-a0669.web.app/prof');
     }

@@ -3,6 +3,8 @@ export function useTelegram() {
     const onClose = () =>{
         tg.close();
     }
+
+
     const onToggleButton = () =>{ //показывать специальную кнопку снизу - задумано ТГ
         if (tg.MainButton.isVisible){
             tg.MainButton.hide(); //скрываем кнопку
@@ -17,6 +19,7 @@ export function useTelegram() {
         tg,
         user: tg.initDataUnsafe?.user,
         queryId: tg.initDataUnsafe.user.id,
-
+        photo_url: tg.initDataUnsafe?.user.photo_url,
+        first_name: tg.initDataUnsafe.user.first_name ,
     }
 }

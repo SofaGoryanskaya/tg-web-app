@@ -14,6 +14,7 @@ const Tea = () => {
     const replaceOrder = () => {
         window.location.assign(' https://tg-bot-2-a0669.web.app/checkF');
     }
+
     return (
         <div className="menu">
             <div className="orderLast" onClick={replaceOrder} > 🛒  </div>

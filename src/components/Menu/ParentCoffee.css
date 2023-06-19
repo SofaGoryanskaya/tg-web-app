@@ -19,8 +19,9 @@
     width: 100%;
     height: 135px;
     margin: 0 auto;
-    background: rgba(255, 187, 86, 1);
-    opacity: 50%;
+    /*background: rgba(255, 187, 86, 1);*/
+    background: #FADEB3;
+    opacity: 80%;
     border-radius: 6px;
 }
 

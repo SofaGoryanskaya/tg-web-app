@@ -5,6 +5,7 @@ import {useClipboard} from "use-clipboard-copy";
 import copy from "./Copy.svg";
 import "../Main/Main.css";
 import photoLabel from "../Form/Takeaway coffee.svg";
+import {useTelegram} from "../../hooks/useTelegram";
 
 const Connection = () => {
     let center = [55.04356688094231,82.94915840806416];
@@ -15,6 +16,8 @@ const Connection = () => {
     const clipboard1 = useClipboard();
     const clipboard2 = useClipboard();
     const clipboard3 = useClipboard();
+
+    const {user} = useTelegram();
     return (
         <div className="map">
             <div className="helpA"> a </div>

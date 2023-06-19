@@ -4,20 +4,28 @@ import photoLabel from "../Form/Takeaway coffee.svg";
 import ParentCoffee from "./ParentCoffee";
 import "../../App.css";
 import "../Main/Main.css";
+import Description from "./Description";
 
-const { getData } = require("../BD/BD");
+
+const { getData, getDataFlag } = require("../BD/BD");
 const products = getData();
 
 
 const Menu = ()=> {
     const [article, setArticle] = useState('');
+    const [value, setValue] = useState('')
     const onClick = (article) => {
         window.location.assign(' https://tg-bot-2-a0669.web.app/' + article);
     }
     const replaceOrder = () => {
         window.location.assign(' https://tg-bot-2-a0669.web.app/checkF');
     }
-
+    const funcloaction = (product) => {
+        product.flag = true;
+        const productNew = getDataFlag();
+        window.sessionStorage.setItem("orderClick", JSON.stringify(productNew));
+        window.location.assign(' https://tg-bot-2-a0669.web.app/description');
+    }
 
     const onChangeSubjectONE = (e) => {
         setArticle(e.target.value)
@@ -65,9 +73,11 @@ const Menu = ()=> {
                 <ParentCoffee
                     product={item}
                     className={'item'}
+                    funcloaction={funcloaction}
                 />
             ))}
             <img className={"photo"} src={photoLabel}/>
+
         </div>
     );
 };

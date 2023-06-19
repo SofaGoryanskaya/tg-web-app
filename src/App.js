@@ -14,6 +14,8 @@ import Authorcoffee from "./components/Menu/AuthorCoffee/Authorcoffee";
 import Classiccoffee from "./components/Menu/Classiccoffee/Classiccoffee";
 import Tea from "./components/Menu/Tea/Tea";
 import New from "./components/Menu/New/New";
+import Description from "./components/Menu/Description";
+
 
 function App() {
     const {tg} = useTelegram();
@@ -29,6 +31,7 @@ function App() {
                   <Route path={'form'} element={<Form />}/>
                   <Route path={'prof'} element={<Profile />}/>
                   <Route path={"map"} element={<Connection/>}/>
+                  <Route path={"description"} element={<Description/>}/>
 
                   <Route path={'menu'} index element={<Menu />}/>
                   <Route path={'cold'} element={<ColdCoffee />}/>
@@ -38,6 +41,7 @@ function App() {
                   <Route path={'new'} element={<New />}/>
                   <Route path={'checkF'} element={<FormCheck />}/>
                   <Route path={'formerror'} element={<FormError />}/>
+
               </Routes>
           </div>
 
