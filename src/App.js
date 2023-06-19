@@ -15,6 +15,7 @@ import Classiccoffee from "./components/Menu/Classiccoffee/Classiccoffee";
 import Tea from "./components/Menu/Tea/Tea";
 import New from "./components/Menu/New/New";
 import Description from "./components/Menu/Description";
+import NewDrink from "./components/Menu/NewDrink/NewDrink";
 
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
                   <Route path={'classic_coffee'} element={<Classiccoffee />}/>
                   <Route path={'tea'} element={<Tea />}/>
                   <Route path={'new_drink'} element={<New />}/>
+                  <Route path={'new_drinks'} element={<NewDrink />}/>
                   <Route path={'checkF'} element={<FormCheck />}/>
                   <Route path={'formerror'} element={<FormError />}/>
 
