@@ -7,7 +7,7 @@ import classic from "../New/new.svg";
 
 const New = () => {
     const { getDataCategory } = require("../../BD/BD");
-    const products = getDataCategory("new");
+    const products = getDataCategory("new_drink");
     const onBack = () => {
         window.location.assign('https://tg-bot-2-a0669.web.app/menu');
     }

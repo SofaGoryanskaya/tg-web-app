@@ -47,8 +47,8 @@ const Menu = ()=> {
         else if (article === 'cold') {
             onClick('cold')
         }
-        else if (article === 'new') {
-            onClick('new')
+        else if (article === 'new_drink') {
+            onClick('new_drink')
         }
     }
 
@@ -65,7 +65,7 @@ const Menu = ()=> {
                 <option value={'author_coffee'} >Авторский кофе </option>
                 <option value={'tea'} >Чай </option>
                 <option value={'cold'} >Холодные напитки </option>
-                <option value={'new'} >Новинки </option>
+                <option value={'new_drink'} >Новинки </option>
             </select>
             <button onClick={onChangeSubjectArticle} className="buttonChangeArticle"> Перейти </button>
 

@@ -38,7 +38,7 @@ function App() {
                   <Route path={'author_coffee'} element={<Authorcoffee />}/>
                   <Route path={'classic_coffee'} element={<Classiccoffee />}/>
                   <Route path={'tea'} element={<Tea />}/>
-                  <Route path={'new'} element={<New />}/>
+                  <Route path={'new_drink'} element={<New />}/>
                   <Route path={'checkF'} element={<FormCheck />}/>
                   <Route path={'formerror'} element={<FormError />}/>
 
